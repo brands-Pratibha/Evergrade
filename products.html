@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Evergrade</title>
+    <meta name="description"
+        content="Browse quality export products from India. Find verified suppliers for Pharmaceuticals, Textiles, Agro-commodities, and more.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="products-page">
+    <!-- Header / Navbar -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
+                evergrade
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="exports.html" class="nav-link active">Exports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="imports.html" class="nav-link">Imports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
+                    </li>
+                    <li><a href="#" class="nav-link">Services</a></li>
+                    <li><a href="#" class="nav-link">How It Works</a></li>
+                    <li><a href="#" class="nav-link">About</a></li>
+                    <li><a href="#" class="nav-link">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary">Login</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="separator">/</span>
+                    <a href="exports.html">Exports</a>
+                    <span class="separator">/</span>
+                    <span class="current" id="category-name">All Products</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Listing Section -->
+        <section class="product-listing-section">
+            <div class="container">
+                <div class="listing-layout">
+                    <!-- Sidebar Filters -->
+                    <aside class="filters-sidebar">
+                        <div class="filters-header">
+                            <h3>Filters</h3>
+                            <button class="clear-filters-btn" id="clear-filters">Clear All</button>
+                        </div>
+
+                        <!-- Search Filter -->
+                        <div class="filter-group">
+                            <label for="search-products" class="filter-label">Search Products</label>
+                            <div class="search-input-wrapper">
+                                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-4.35-4.35" />
+                                </svg>
+                                <input type="text" id="search-products" placeholder="Search..."
+                                    class="filter-search-input">
+                            </div>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Category</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="pharmaceuticals">
+                                    <span class="checkmark"></span>
+                                    Pharmaceuticals & APIs
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="textiles">
+                                    <span class="checkmark"></span>
+                                    Textiles & Garments
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="agro">
+                                    <span class="checkmark"></span>
+                                    Agro-Commodities
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="chemicals">
+                                    <span class="checkmark"></span>
+                                    Chemical Products
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="engineering">
+                                    <span class="checkmark"></span>
+                                    Engineering Goods
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="category" value="electronics">
+                                    <span class="checkmark"></span>
+                                    Electronics
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Certification Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Certifications</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="certification" value="iso">
+                                    <span class="checkmark"></span>
+                                    ISO Certified
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="certification" value="gmp">
+                                    <span class="checkmark"></span>
+                                    GMP Certified
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="certification" value="who">
+                                    <span class="checkmark"></span>
+                                    WHO Approved
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="certification" value="fssai">
+                                    <span class="checkmark"></span>
+                                    FSSAI Certified
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- MOQ Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Minimum Order Quantity</h4>
+                            <div class="filter-options">
+                                <label class="filter-radio">
+                                    <input type="radio" name="moq" value="any" checked>
+                                    <span class="radio-mark"></span>
+                                    Any
+                                </label>
+                                <label class="filter-radio">
+                                    <input type="radio" name="moq" value="low">
+                                    <span class="radio-mark"></span>
+                                    Low MOQ (< 100 units) </label>
+                                        <label class="filter-radio">
+                                            <input type="radio" name="moq" value="medium">
+                                            <span class="radio-mark"></span>
+                                            Medium (100-500 units)
+                                        </label>
+                                        <label class="filter-radio">
+                                            <input type="radio" name="moq" value="high">
+                                            <span class="radio-mark"></span>
+                                            High (500+ units)
+                                        </label>
+                            </div>
+                        </div>
+
+                        <!-- Supplier Rating Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Supplier Rating</h4>
+                            <div class="filter-options">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="rating" value="4.5">
+                                    <span class="checkmark"></span>
+                                    <span class="rating-stars">★★★★★</span> 4.5 & above
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="rating" value="4.0">
+                                    <span class="checkmark"></span>
+                                    <span class="rating-stars">★★★★</span> 4.0 & above
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" name="rating" value="3.5">
+                                    <span class="checkmark"></span>
+                                    <span class="rating-stars">★★★</span> 3.5 & above
+                                </label>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <div class="listing-main">
+                        <!-- Listing Header -->
+                        <div class="listing-header">
+                            <div class="listing-info">
+                                <h1 id="listing-title">All Products</h1>
+                                <span class="product-count"><span id="product-count">24</span> products found</span>
+                            </div>
+                            <div class="listing-controls">
+                                <div class="sort-control">
+                                    <label for="sort-by">Sort by:</label>
+                                    <select id="sort-by" class="sort-select">
+                                        <option value="relevance">Relevance</option>
+                                        <option value="rating-high">Rating: High to Low</option>
+                                        <option value="rating-low">Rating: Low to High</option>
+                                        <option value="moq-low">MOQ: Low to High</option>
+                                        <option value="moq-high">MOQ: High to Low</option>
+                                        <option value="newest">Newest First</option>
+                                    </select>
+                                </div>
+                                <div class="view-toggle">
+                                    <button class="view-btn active" data-view="grid" aria-label="Grid view">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="3" width="7" height="7" />
+                                            <rect x="14" y="3" width="7" height="7" />
+                                            <rect x="3" y="14" width="7" height="7" />
+                                            <rect x="14" y="14" width="7" height="7" />
+                                        </svg>
+                                    </button>
+                                    <button class="view-btn" data-view="list" aria-label="List view">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <line x1="3" y1="6" x2="21" y2="6" />
+                                            <line x1="3" y1="12" x2="21" y2="12" />
+                                            <line x1="3" y1="18" x2="21" y2="18" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div class="products-grid" id="products-container">
+                            <!-- Product 1 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Paracetamol API (USP Grade)</h3>
+                                    <span class="supplier-rating">★ 4.8</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">PharmaCorp India</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">GMP</span>
+                                    <span class="tag">WHO</span>
+                                    <span class="tag">ISO</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">1000 kg</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">15-20 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">50 MT/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Organic Cotton Fabric</h3>
+                                    <span class="supplier-rating">★ 4.9</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">Textile Exports Ltd</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">GOTS</span>
+                                    <span class="tag">OEKO-TEX</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">500 meters</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">10-15 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">100,000 m/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Basmati Rice (Premium)</h3>
+                                    <span class="supplier-rating">★ 4.7</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">Agro Traders</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">FSSAI</span>
+                                    <span class="tag">ISO</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">10 MT</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">7-10 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">500 MT/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Industrial Chemicals</h3>
+                                    <span class="supplier-rating">★ 4.6</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">ChemTech Industries</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">ISO</span>
+                                    <span class="tag">REACH</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">5 tons</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">20-25 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">100 MT/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>CNC Machine Parts</h3>
+                                    <span class="supplier-rating">★ 4.5</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">Precision Engineering Co</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">ISO 9001</span>
+                                    <span class="tag">CE</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">100 units</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">30-45 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">5000 units/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 6 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Silk Fabric (Pure)</h3>
+                                    <span class="supplier-rating">★ 4.8</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">Bangalore Silk House</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">Handloom</span>
+                                    <span class="tag">GI Tag</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">200 meters</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">14-21 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">10,000 m/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 7 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Turmeric Powder (Export Quality)</h3>
+                                    <span class="supplier-rating">★ 4.9</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">Spice World Exports</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">Organic</span>
+                                    <span class="tag">FSSAI</span>
+                                    <span class="tag">USDA</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">5 tons</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">5-7 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">200 MT/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 8 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>Amoxicillin Trihydrate BP</h3>
+                                    <span class="supplier-rating">★ 4.7</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">MediPharma Labs</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">GMP</span>
+                                    <span class="tag">WHO</span>
+                                    <span class="tag">FDA</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">500 kg</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">20-25 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">30 MT/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+
+                            <!-- Product 9 -->
+                            <div class="product-card">
+                                <div class="product-header">
+                                    <h3>LED Panel Lights</h3>
+                                    <span class="supplier-rating">★ 4.4</span>
+                                </div>
+                                <div class="supplier-info">
+                                    <span class="supplier-name">BrightTech Electronics</span>
+                                </div>
+                                <div class="product-tags">
+                                    <span class="tag">BIS</span>
+                                    <span class="tag">CE</span>
+                                    <span class="tag">RoHS</span>
+                                </div>
+                                <div class="product-specs">
+                                    <div class="spec-row">
+                                        <span class="spec-label">MOQ:</span>
+                                        <span class="spec-value">500 units</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Lead Time:</span>
+                                        <span class="spec-value">10-14 days</span>
+                                    </div>
+                                    <div class="spec-row">
+                                        <span class="spec-label">Capacity:</span>
+                                        <span class="spec-value">50,000 units/month</span>
+                                    </div>
+                                </div>
+                                <a href="product-detail.html" class="btn btn-primary full-width">View Details</a>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="pagination-btn prev" disabled>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                                Previous
+                            </button>
+                            <div class="pagination-numbers">
+                                <button class="page-number active">1</button>
+                                <button class="page-number">2</button>
+                                <button class="page-number">3</button>
+                                <span class="page-ellipsis">...</span>
+                                <button class="page-number">8</button>
+                            </div>
+                            <button class="pagination-btn next">
+                                Next
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-icon">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </span>
+                    evergrade
+                </a>
+                <p class="footer-company">Evergrade International Private Limited</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-copyright">&copy; 2026 Evergrade. All rights reserved.</p>
+                <p class="footer-links"><a href="#">Mumbai</a> | <a href="#">New Delhi</a> | <a href="#">Dubai</a> |
+                    <a href="#">Lagos</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evergrade - B2B Import-Export Made Simple</title>
+    <meta name="description"
+        content="Connect with global traders. Evergrade makes B2B import and export simple, secure, and efficient.">
+    <!-- Using Arial system font as per Figma design -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header / Navbar -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
+                evergrade
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="exports.html" class="nav-link">Exports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="imports.html" class="nav-link">Imports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
+                    </li>
+                    <li><a href="#" class="nav-link">Services</a></li>
+                    <li><a href="#" class="nav-link">How It Works</a></li>
+                    <li><a href="#" class="nav-link">About</a></li>
+                    <li><a href="#" class="nav-link">Resources</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary">Login</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1><span class="hero-title">B2B Import-Export</span><br><span class="hero-highlight">Made
+                            Simple</span></h1>
+                    <p class="hero-subtext">Trade with 28+ countries. Real quotes, real deals, expert support.</p>
+                    <div class="hero-cta-group">
+                        <a href="#" class="btn btn-primary btn-lg">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path
+                                    d="M12 2C9.43 4.7 8 8.27 8 12C8 15.73 9.43 19.3 12 22C14.57 19.3 16 15.73 16 12C16 8.27 14.57 4.7 12 2Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M2 12H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            I Want to Sell / Export
+                        </a>
+                        <a href="#" class="btn btn-secondary btn-lg">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            I Want to Buy / Import
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Propositions -->
+        <section class="value-props-section">
+            <div class="container value-props-container">
+                <div class="value-prop-card">
+                    <span class="card-label">For Exporters</span>
+                    <h3>Sell Globally with Confidence</h3>
+                    <ul class="prop-list">
+                        <li>
+                            <span class="prop-icon-circle">
+                                <img src="assets/Icon3.svg" alt="" width="24" height="24">
+                            </span>
+                            <div class="prop-text">
+                                <strong>Reach Global Buyers</strong>
+                                <span class="prop-desc">50,000+ international buyers actively sourcing</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="prop-icon-circle">
+                                <img src="assets/Icon4.svg" alt="" width="24" height="24">
+                            </span>
+                            <div class="prop-text">
+                                <strong>Transparent Pricing</strong>
+                                <span class="prop-desc">No hidden fees, market-based fair pricing</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="prop-icon-circle">
+                                <img src="assets/Icon5.svg" alt="" width="24" height="24">
+                            </span>
+                            <div class="prop-text">
+                                <strong>Expert Support</strong>
+                                <span class="prop-desc">Customs, compliance, and finance help</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="value-prop-card">
+                    <span class="card-label">For Importers</span>
+                    <h3>Source Quality Products</h3>
+                    <ul class="prop-list">
+                        <li>
+                            <span class="prop-icon-circle prop-icon-teal">
+                                <img src="assets/Icon6.svg" alt="" width="24" height="24">
+                            </span>
+                            <div class="prop-text">
+                                <strong>Find Quality Suppliers</strong>
+                                <span class="prop-desc">Verified exporters with real specifications</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="prop-icon-circle prop-icon-teal">
+                                <img src="assets/Icon7.svg" alt="" width="24" height="24">
+                            </span>
+                            <div class="prop-text">
+                                <strong>Competitive Pricing</strong>
+                                <span class="prop-desc">Compare quotes, buy direct from source</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="prop-icon-circle prop-icon-teal">
+                                <img src="assets/Icon8.svg" alt="" width="24" height="24">
+                            </span>
+                            <div class="prop-text">
+                                <strong>Risk-Free Trading</strong>
+                                <span class="prop-desc">Payment protection & quality guarantee</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Active Traders</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">₹5,000+Cr</span>
+                    <span class="stat-label">Annual Trade Volume</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">28+</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50,000+</span>
+                    <span class="stat-label">Products Listed</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">PROCESS</span>
+                    <h2>How It Works</h2>
+                </div>
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-icon">1</div>
+                        <h3>Post Requirement</h3>
+                        <p>Browse Products</p>
+                    </div>
+                    <!-- Connector -->
+                    <div class="step-connector"></div>
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-icon">2</div>
+                        <h3>Quote & Negotiation</h3>
+                        <p>Compare Offers</p>
+                    </div>
+                    <!-- Connector -->
+                    <div class="step-connector"></div>
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-icon">3</div>
+                        <h3>Finalize Deal</h3>
+                        <p>Secure Agreement</p>
+                    </div>
+                    <!-- Connector -->
+                    <div class="step-connector"></div>
+                    <!-- Step 4 -->
+                    <div class="step-card">
+                        <div class="step-icon">4</div>
+                        <h3>Execute & Support</h3>
+                        <p>Complete Transaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Categories -->
+        <section class="categories-section" id="exports">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Popular Categories</h2>
+                </div>
+                <div class="categories-container">
+                    <!-- Category Card 1 -->
+                    <div class="category-card">
+                        <div class="card-icon-box">
+                            <img src="assets/Icon.svg" alt="" width="24" height="24">
+                        </div>
+                        <h3>Engineering Goods</h3>
+                        <div class="card-stats">
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 7h-9m3 10H5m14-5H9m-6-5h1" stroke-linecap="round" />
+                                </svg>
+                                <span>950 exporters</span>
+                            </div>
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <span>MOQ: 100-500 units</span>
+                            </div>
+                        </div>
+                        <a href="#" class="explore-link">Explore Category &rarr;</a>
+                    </div>
+
+                    <!-- Category Card 2 -->
+                    <div class="category-card">
+                        <div class="card-icon-box">
+                            <img src="assets/Icon.svg" alt="" width="24" height="24">
+                        </div>
+                        <h3>Pharmaceuticals</h3>
+                        <div class="card-stats">
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 7h-9m3 10H5m14-5H9m-6-5h1" stroke-linecap="round" />
+                                </svg>
+                                <span>1,200 exporters</span>
+                            </div>
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <span>MOQ: 50-200 units</span>
+                            </div>
+                        </div>
+                        <a href="#" class="explore-link">Explore Category &rarr;</a>
+                    </div>
+
+                    <!-- Category Card 3 -->
+                    <div class="category-card">
+                        <div class="card-icon-box">
+                            <img src="assets/Icon.svg" alt="" width="24" height="24">
+                        </div>
+                        <h3>Textiles & Garments</h3>
+                        <div class="card-stats">
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 7h-9m3 10H5m14-5H9m-6-5h1" stroke-linecap="round" />
+                                </svg>
+                                <span>850 exporters</span>
+                            </div>
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <span>MOQ: 200-1000 units</span>
+                            </div>
+                        </div>
+                        <a href="#" class="explore-link">Explore Category &rarr;</a>
+                    </div>
+
+                    <!-- Category Card 4 -->
+                    <div class="category-card">
+                        <div class="card-icon-box">
+                            <img src="assets/Icon.svg" alt="" width="24" height="24">
+                        </div>
+                        <h3>Agro-Commodities</h3>
+                        <div class="card-stats">
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 7h-9m3 10H5m14-5H9m-6-5h1" stroke-linecap="round" />
+                                </svg>
+                                <span>2,500 exporters</span>
+                            </div>
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <span>MOQ: 5-10 tons</span>
+                            </div>
+                        </div>
+                        <a href="#" class="explore-link">Explore Category &rarr;</a>
+                    </div>
+
+                    <!-- Category Card 5 -->
+                    <div class="category-card">
+                        <div class="card-icon-box">
+                            <img src="assets/Icon.svg" alt="" width="24" height="24">
+                        </div>
+                        <h3>Chemical Products</h3>
+                        <div class="card-stats">
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 7h-9m3 10H5m14-5H9m-6-5h1" stroke-linecap="round" />
+                                </svg>
+                                <span>600 exporters</span>
+                            </div>
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <span>MOQ: 1-5 tons</span>
+                            </div>
+                        </div>
+                        <a href="#" class="explore-link">Explore Category &rarr;</a>
+                    </div>
+
+                    <!-- Category Card 6 -->
+                    <div class="category-card">
+                        <div class="card-icon-box">
+                            <img src="assets/Icon.svg" alt="" width="24" height="24">
+                        </div>
+                        <h3>Electronics</h3>
+                        <div class="card-stats">
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 7h-9m3 10H5m14-5H9m-6-5h1" stroke-linecap="round" />
+                                </svg>
+                                <span>450 exporters</span>
+                            </div>
+                            <div class="stat-row">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 6v6l4 2" />
+                                </svg>
+                                <span>MOQ: 50-100 units</span>
+                            </div>
+                        </div>
+                        <a href="#" class="explore-link">Explore Category &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="testimonials-carousel">
+                <div class="testimonials-track">
+                    <!-- Original cards -->
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Evergrade helped us reach 12 new countries in 6 months"</p>
+                        <div class="user-info">
+                            <span class="name">Pharma</span>
+                            <span class="role">Exporter</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"We found best chemical suppliers at 30% lower cost"</p>
+                        <div class="user-info">
+                            <span class="name">Manufacturing</span>
+                            <span class="role">Company</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Their documentation services saved us weeks"</p>
+                        <div class="user-info">
+                            <span class="name">Textiles</span>
+                            <span class="role">Exporter</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Seamless import process with transparent pricing"</p>
+                        <div class="user-info">
+                            <span class="name">Electronics</span>
+                            <span class="role">Importer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Expert support made our first export hassle-free"</p>
+                        <div class="user-info">
+                            <span class="name">Agro Products</span>
+                            <span class="role">Exporter</span>
+                        </div>
+                    </div>
+                    <!-- Duplicated cards for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Evergrade helped us reach 12 new countries in 6 months"</p>
+                        <div class="user-info">
+                            <span class="name">Pharma</span>
+                            <span class="role">Exporter</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"We found best chemical suppliers at 30% lower cost"</p>
+                        <div class="user-info">
+                            <span class="name">Manufacturing</span>
+                            <span class="role">Company</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Their documentation services saved us weeks"</p>
+                        <div class="user-info">
+                            <span class="name">Textiles</span>
+                            <span class="role">Exporter</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Seamless import process with transparent pricing"</p>
+                        <div class="user-info">
+                            <span class="name">Electronics</span>
+                            <span class="role">Importer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Expert support made our first export hassle-free"</p>
+                        <div class="user-info">
+                            <span class="name">Agro Products</span>
+                            <span class="role">Exporter</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container cta-content">
+                <h2>Ready to Grow Your Trade?</h2>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-lg">List Your Products</a>
+                    <a href="#" class="btn btn-outline btn-lg">Find Suppliers</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <a href="#" class="logo footer-logo">
+                    <span class="logo-icon">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </span>
+                    evergrade
+                </a>
+                <p class="footer-company">Evergrade International Private Limited</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-copyright">&copy; 2026 Evergrade. All rights reserved.</p>
+                <p class="footer-links"><a href="#">Mumbai</a> | <a href="#">New Delhi</a> | <a href="#">Dubai</a> |
+                    <a href="#">Lagos</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
