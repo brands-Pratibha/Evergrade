@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     /* Colors */
     --color-primary: #FF6B00;
     --color-primary-hover: #e65100;
@@ -13,6 +13,7 @@
     --color-bg-white: #FFFFFF;
     --color-bg-dark: #004852;
     --color-bg-stats: #E8F4F8;
+    --color-bg-yellow: #FFFCF0;
 
     --color-border: #E5E7EB;
 
@@ -80,6 +81,10 @@ body {
     background-color: var(--color-bg-light);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+}
+
+.home-page-new {
+    background-color: var(--color-bg-yellow);
 }
 
 a {
@@ -165,12 +170,11 @@ img {
 
 /* Header */
 .site-header {
-    background-color: var(--color-bg-white);
+    background-color: var(--color-bg-yellow);
     height: var(--header-height);
-    border-bottom: 1px solid var(--color-border);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     align-items: center;
 }
@@ -1769,7 +1773,7 @@ img {
 }
 
 .supplier-location::before {
-    content: '📍';
+    content: 'ðŸ“';
     font-size: 12px;
 }
 
@@ -1782,7 +1786,7 @@ img {
 }
 
 .supplier-experience::before {
-    content: '⏱️';
+    content: 'â±ï¸';
     font-size: 12px;
 }
 
@@ -2005,3 +2009,3072 @@ img {
         gap: 8px;
     }
 }
+
+/* =========================================
+   NEW HOME PAGE STYLES (Figma Pixel-Perfect)
+   ========================================= */
+
+/* Logo Image */
+.logo-img {
+    height: 32px;
+    width: auto;
+}
+
+/* NEW Hero Section - Matching Figma */
+.home-hero-new {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('assets/home/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0), rgba(30, 30, 30, 0.4) 50%, rgba(30, 30, 30, 0.7));
+    pointer-events: none;
+}
+
+/* Floating Header */
+.hero-header {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 90%;
+    max-width: 1300px;
+}
+
+.hero-header-container {
+    background: #FFFCF0;
+    border-radius: 0;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.hero-nav-link,
+.nav-link {
+    font-family: 'Outfit', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.hero-nav-link:hover,
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+.hero-nav-link.active,
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.hero-nav-link .dropdown-arrow {
+    font-size: 10px;
+    margin-left: 2px;
+    transition: transform 0.2s ease;
+}
+
+/* Dropdown logic */
+.has-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 110;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: var(--color-secondary);
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+    background: #f8f9fa;
+    color: var(--color-primary);
+}
+
+.hero-contact-btn {
+    font-family: 'Outfit', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    padding: 10px 24px;
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius-button);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.hero-contact-btn:hover {
+    background: var(--color-secondary);
+    color: white;
+}
+
+/* Center Search Area */
+.hero-search-area {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    z-index: 10;
+}
+
+.hero-search-box {
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    max-width: 90vw;
+}
+
+.hero-search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    font-family: 'Outfit', Arial, sans-serif;
+    color: #1A1A1A;
+    background: transparent;
+}
+
+.hero-search-input::placeholder {
+    color: #9CA3AF;
+}
+
+.hero-search-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: #FFFCF0;
+    /* Cream background from header */
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6B7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.hero-search-btn:hover {
+    border-color: #9CA3AF;
+    background: #FFF9E0;
+    color: #374151;
+}
+
+.hero-search-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Category Tags */
+.hero-category-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 24px;
+    background: rgba(180, 180, 180, 0.6);
+    /* Darker greyish background */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #0F3D5E;
+    /* Dark Blue text */
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.hero-tag:hover {
+    background: rgba(180, 180, 180, 0.8);
+    transform: translateY(-2px);
+}
+
+.hero-tag svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Bottom Content */
+.hero-bottom-content {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1300px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 10;
+}
+
+.hero-title-area {
+    width: 60%;
+    max-width: 700px;
+}
+
+.hero-main-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: white;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hero-main-title em {
+    font-style: italic;
+}
+
+.hero-info-area {
+    width: 35%;
+    max-width: 450px;
+    text-align: left;
+    margin-top: 10px;
+    /* Slight offset to align optically with title cap height */
+}
+
+.hero-description {
+    font-size: 18px;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    opacity: 0.9;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: white;
+    color: #1A1A1A;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.hero-cta-btn:hover {
+    background: #F3F4F6;
+}
+
+.hero-cta-btn span {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Old Home Hero Section (keeping for backwards compatibility) */
+.home-hero {
+    padding: 80px 0 60px;
+    background: #FFFFFF;
+}
+
+.home-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.home-hero-content {
+    max-width: 500px;
+}
+
+.home-hero-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #1A1A1A;
+    line-height: 1.15;
+    margin-bottom: 40px;
+}
+
+.home-hero-title em {
+    color: #FF6B00;
+    font-style: italic;
+}
+
+.home-hero-search {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #F5F5F5;
+    border-radius: 100px;
+    padding: 6px 6px 6px 24px;
+    border: 1px solid #E5E7EB;
+}
+
+.home-search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #1A1A1A;
+    outline: none;
+    padding: 12px 0;
+}
+
+.home-search-input::placeholder {
+    color: #9CA3AF;
+}
+
+.home-search-btn {
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.home-hero-images {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-img-large {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.hero-img-large img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.hero-img-small {
+    width: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.hero-img-small img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Home Categories Section */
+.home-categories {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.home-categories-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 40px;
+}
+
+.home-categories-header h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.home-categories-header p {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.home-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.home-category-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: block;
+}
+
+.home-category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.home-category-card:hover img {
+    transform: scale(1.05);
+}
+
+.home-category-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+/* Home About Section */
+.home-about {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.home-about-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 24px;
+}
+
+.home-about-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #4B5563;
+    max-width: 900px;
+}
+
+/* Home Reviews Section */
+.home-reviews {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.home-reviews-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 40px;
+}
+
+.home-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.home-review-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #F3F4F6;
+}
+
+.home-review-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.home-review-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-review-info {
+    padding: 20px;
+}
+
+.home-review-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+/* Home Quality Section */
+.home-quality {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.home-quality-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.home-quality-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #1A1A1A;
+    line-height: 1.3;
+}
+
+.home-quality-title em {
+    color: #FF6B00;
+    font-style: italic;
+}
+
+.home-quality-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.home-quality-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.home-quality-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-quality-label {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+/* Home Benefits Section */
+.home-benefits {
+    padding: 80px 0;
+    background: #F9FAFB;
+}
+
+.home-benefits-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.home-benefits-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 32px;
+}
+
+.home-benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.home-benefit-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.home-benefit-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #FF6B00;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+.home-benefit-text strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1A1A1A;
+    margin-bottom: 6px;
+}
+
+.home-benefit-text p {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.home-benefits-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.home-benefits-images {
+    display: flex;
+    gap: 16px;
+}
+
+.home-benefits-img-large {
+    flex: 2;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.home-benefits-img-small {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.home-benefits-img-top {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.home-benefits-img-bottom {
+    width: 100%;
+}
+
+.home-benefits-img-full {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.home-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.home-stat-card {
+    background: white;
+    padding: 24px 16px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.home-stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #FF6B00;
+    margin-bottom: 4px;
+}
+
+.home-stat-label {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+/* Home Requirement Section */
+.home-requirement {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.home-requirement-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-requirement-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 12px;
+}
+
+.home-requirement-subtitle {
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 40px;
+}
+
+.home-requirement-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+}
+
+.home-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.home-form-input,
+.home-form-textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #F9FAFB;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.home-form-input:focus,
+.home-form-textarea:focus {
+    outline: none;
+    border-color: #FF6B00;
+    background: white;
+}
+
+.home-form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.home-requirement-form .btn-submit-requirement {
+    width: 100%;
+    height: 56px;
+    background-color: #291F1E;
+    border: 1px solid #291F1E;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.home-requirement-form .btn-submit-requirement:hover {
+    background-color: #3d2d2c;
+    border-color: #3d2d2c;
+}
+
+.home-requirement-form .btn-submit-requirement img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Home Gallery Section */
+.home-gallery {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.home-gallery-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #1A1A1A;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.home-gallery-subtitle {
+    font-size: 16px;
+    color: #6B7280;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.home-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 180px 180px;
+    gap: 16px;
+}
+
+.home-gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.home-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.home-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Gallery item positions - masonry style layout */
+.home-gallery-item-1 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+}
+
+.home-gallery-item-2 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.home-gallery-item-3 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.home-gallery-item-4 {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+.home-gallery-item-5 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.home-gallery-item-6 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.home-gallery-item-7 {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+/* Home Footer - Figma Match */
+.home-footer {
+    background: #FFFFFF;
+    padding: 80px 0 40px;
+    color: #4A5565;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.home-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.home-footer-brand .logo-img {
+    margin-bottom: 24px;
+    height: 32px;
+}
+
+.home-footer-tagline {
+    font-size: 14px;
+    color: #4A5565;
+    line-height: 1.6;
+    max-width: 280px;
+    margin-bottom: 24px;
+}
+
+/* Social Icons */
+.footer-social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4A5565;
+    transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+    color: var(--color-primary);
+}
+
+.home-footer-col h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 24px;
+}
+
+.home-footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.home-footer-col a {
+    font-size: 14px;
+    color: #4A5565;
+    transition: color 0.2s ease;
+}
+
+.home-footer-col a:hover {
+    color: var(--color-primary);
+}
+
+/* Categories Section */
+.footer-categories-section {
+    padding: 40px 0;
+    border-top: 1px solid #E2E8F0;
+    margin-bottom: 40px;
+}
+
+.footer-categories-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+}
+
+.footer-categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px 40px;
+}
+
+.footer-category-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-categories-grid a {
+    font-size: 14px;
+    color: #4A5565;
+    transition: color 0.2s ease;
+}
+
+.footer-categories-grid a:hover {
+    color: var(--color-primary);
+}
+
+/* Footer Bottom */
+.home-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid #E2E8F0;
+    font-size: 14px;
+    color: #64748B;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-bottom-links a {
+    color: #64748B;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: var(--color-primary);
+}
+
+/* Home Page Responsive Styles */
+@media (max-width: 1024px) {
+    .home-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .home-hero-title {
+        font-size: 40px;
+    }
+
+    .home-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-quality-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .home-quality-images {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-benefits-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .home-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 120px);
+    }
+
+    .home-gallery-item-1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .home-gallery-item-2 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .home-gallery-item-3 {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    .home-gallery-item-4 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .home-gallery-item-5 {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .home-gallery-item-6 {
+        grid-column: 3;
+        grid-row: 2;
+    }
+
+    .home-gallery-item-7 {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .home-gallery-item-8 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .home-gallery-item-9 {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .home-gallery-item-10 {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .home-gallery-item-11 {
+        grid-column: 2 / 4;
+        grid-row: 4;
+    }
+
+    .home-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .home-hero-title {
+        font-size: 32px;
+    }
+
+    .home-hero-search {
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 12px;
+    }
+
+    .home-search-btn {
+        width: 100%;
+    }
+
+    .home-hero-images {
+        flex-direction: column;
+    }
+
+    .hero-img-small {
+        width: 100%;
+    }
+
+    .home-categories-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .home-categories-grid,
+    .home-reviews-grid,
+    .home-quality-images,
+    .home-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .home-footer-links {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .home-footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .home-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 100px);
+    }
+
+    .home-gallery-item-1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .home-gallery-item-2 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .home-gallery-item-3 {
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+
+    .home-gallery-item-4 {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .home-gallery-item-5 {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .home-gallery-item-6 {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .home-gallery-item-7 {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .home-gallery-item-8 {
+        grid-column: 1 / 3;
+        grid-row: 5;
+    }
+
+    .home-gallery-item-9 {
+        grid-column: 1;
+        grid-row: 6;
+    }
+
+    .home-gallery-item-10 {
+        grid-column: 2;
+        grid-row: 6;
+    }
+
+    .home-gallery-item-11 {
+        display: none;
+    }
+}
+
+/* =========================================
+   New Categories Section (Figma Match)
+   ========================================= */
+:root {
+    --color-bg-cream: #FFFCF0;
+    --font-family-serif: 'Playfair Display', serif;
+    --font-family-sans: 'Outfit', sans-serif;
+}
+
+.home-categories-new {
+    padding: 100px 0;
+    background-color: var(--color-bg-yellow);
+    overflow: hidden;
+    /* Prevent horizontal scroll on body */
+}
+
+/* Header Layout */
+.categories-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* Align bottom of text */
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: 30px;
+    position: relative;
+}
+
+.section-title-huge {
+    font-family: var(--font-family-serif);
+    font-size: 70px;
+    font-weight: 700;
+    /* Bold */
+    color: #291f1e;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.categories-header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.section-subtitle-large {
+    font-family: var(--font-family-sans);
+    font-size: 24px;
+    color: #291f1e;
+    max-width: 370px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.arrow-square-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: transparent;
+    /* Or #FFFCF0 if it needs to cover something, but Figma shows transparent/same bg */
+    border: 1px solid #291f1e;
+    transition: all 0.2s ease;
+}
+
+.arrow-square-btn:hover {
+    background-color: #291f1e;
+}
+
+.arrow-square-btn:hover img {
+    filter: invert(1);
+}
+
+.arrow-square-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Horizontal Scroll Container */
+.categories-scroll-container {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    /* Space for scrollbar */
+    scroll-behavior: smooth;
+    /* Hide scrollbar for cleaner look, user can still scroll */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+}
+
+.categories-scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+.categories-scroll-container:active {
+    cursor: grabbing;
+}
+
+/* Card Styles */
+.cat-card-modern {
+    display: flex;
+    flex-direction: column;
+    min-width: 320px;
+    /* Adjust based on Figma card width */
+    max-width: 320px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    /* Important for scroll */
+}
+
+.cat-card-modern:hover {
+    transform: translateY(-5px);
+}
+
+.cat-card-img {
+    width: 100%;
+    height: 380px;
+    /* Adjust height based on Figma aspect ratio */
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.cat-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cat-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cat-card-content h3 {
+    font-family: var(--font-family-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: #291f1e;
+    margin: 0;
+}
+
+.cat-card-content p {
+    font-family: var(--font-family-sans);
+    font-size: 16px;
+    color: #291f1e;
+    /* Opacity might be 0.7 */
+    opacity: 0.7;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .categories-header-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .section-title-huge {
+        font-size: 48px;
+    }
+
+    .categories-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .section-subtitle-large {
+        font-size: 18px;
+        max-width: 200px;
+    }
+
+    .cat-card-modern {
+        min-width: 260px;
+        max-width: 260px;
+    }
+
+    .cat-card-img {
+        height: 300px;
+    }
+}
+
+/* =========================================
+   New About Section (Figma Match)
+   ========================================= */
+.home-about-new {
+    padding: 100px 0;
+    background-color: var(--color-bg-yellow);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-bg-1 {
+    position: absolute;
+    left: -60px;
+    top: 50px;
+    width: 580px;
+    height: 580px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-bg-2 {
+    position: absolute;
+    left: 760px;
+    top: -220px;
+    width: 800px;
+    height: 800px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.about-bg-1 img,
+.about-bg-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.about-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+    /* Above background */
+}
+
+.about-text-content {
+    flex: 1;
+    max-width: 765px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    /* Gap between title and text in Figma */
+}
+
+/* Reusing .section-title-huge from categories section */
+
+.about-description {
+    font-family: var(--font-family-sans);
+    font-size: 24px;
+    color: #291f1e;
+    line-height: 1.3;
+    max-width: 752px;
+}
+
+.about-image-wrapper {
+    flex-shrink: 0;
+    width: 395px;
+    height: 427px;
+    overflow: hidden;
+    /* Optional: border radius? Figma doesn't explicitly show one in the small preview but standard for this design is usually none or small */
+}
+
+.about-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+    .about-layout {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-image-wrapper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 395/427;
+        max-width: 500px;
+    }
+
+    .about-bg-1,
+    .about-bg-2 {
+        opacity: 0.5;
+        /* Fade bg on smaller screens so text is readable */
+    }
+}
+
+/* =========================================
+   New Reviews Marquee Section
+   ========================================= */
+.home-reviews-marquee {
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: var(--color-bg-yellow);
+}
+
+.reviews-track-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    /* Optional: fade edges */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.reviews-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+    padding: 20px 0;
+    /* Space for shadow */
+}
+
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Assumes we duplicated content enough to scroll 50% seamlessly */
+}
+
+/* Card Styling */
+.review-marquee-card {
+    position: relative;
+    width: 320px;
+    height: 480px;
+    /* Adjust height based on Figma aspect ratio, seems tall */
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.review-marquee-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-card-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Text Overlay Box */
+.review-card-overlay {
+    position: absolute;
+    bottom: 80px;
+    /* Space from bottom where button is */
+    left: 20px;
+    width: 280px;
+    /* Fixed width slightly smaller than card */
+    background: #FFFFFF;
+    padding: 24px 20px;
+    /* No border radius visible in preview, maybe slight? */
+    border-radius: 0;
+}
+
+.review-card-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Profile Pic - Circular, Absolute top-center of text box or overlapping */
+.review-profile-pic {
+    position: absolute;
+    top: -40px;
+    /* Pull it up out of the box */
+    right: 20px;
+    /* Positioning right top corner */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.review-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-card-text h3 {
+    font-family: var(--font-family-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: #291f1e;
+    margin: 0;
+    margin-top: 10px;
+    /* Make space if needed, or just standard flow */
+}
+
+.review-card-text p {
+    font-family: var(--font-family-sans);
+    font-size: 18px;
+    color: #291f1e;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Arrow Button */
+.review-arrow-btn {
+    position: absolute;
+    bottom: 50px;
+    /* Aligned with bottom of overlay? No, Figma shows it below or overlapping? */
+    /* Looking at Image: The Green button is ON TOP of the white box, bottom right corner? OR below it? */
+    /* Frame 261: Button is at left-[310px] top-[433px]. The white box is at top-[369px]. */
+    /* It seems the button is separate. */
+    right: 20px;
+    bottom: 60px;
+    /* Adjust to overlap or sit next to text box */
+    width: 50px;
+    height: 50px;
+    background-color: #8fa969;
+    /* Green from Figma */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 10;
+}
+
+.review-arrow-btn:hover {
+    background-color: #7a9255;
+}
+
+.review-arrow-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* =========================================
+   New Reviews Marquee Section
+   ========================================= */
+.home-reviews-marquee {
+    padding: 100px 0;
+    overflow: hidden;
+    background-color: var(--color-bg-light);
+    /* Or cream if requested, but Figma shows white usually? User said "frame 261" which had ellipses BG */
+    position: relative;
+}
+
+/* Background decorations */
+.reviews-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.reviews-bg-decor img {
+    position: absolute;
+    opacity: 0.3;
+}
+
+.reviews-track-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+    padding: 40px 20px;
+    /* Space for shadow/hover */
+}
+
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Card Styling - Plain White Card */
+.review-marquee-card {
+    position: relative;
+    width: 350px;
+    /* Wider card */
+    height: auto;
+    min-height: 250px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 32px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-marquee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.review-card-bg {
+    display: none;
+    /* Hide old bg image if present in HTML */
+}
+
+/* Text Overlay Box -> Now just Card Content */
+.review-card-overlay {
+    position: static;
+    /* Reset absolute */
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.review-card-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Profile Photo */
+.review-profile-pic {
+    position: relative;
+    /* Not absolute anymore? Or top right inside card? */
+    /* Figma code showed "size-[29px]" which is small, maybe just an icon? 
+       But user asked for "profile photo in the circle". 
+       I will put it at the top left or top right. */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.review-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.review-card-text h3 {
+    font-family: var(--font-family-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: #291f1e;
+    margin: 0;
+}
+
+.review-card-text p {
+    font-family: var(--font-family-sans);
+    font-size: 18px;
+    color: #291f1e;
+    line-height: 1.4;
+    opacity: 0.8;
+    font-style: italic;
+    /* Quote style? "Tap to access..." */
+}
+
+/* Arrow Button */
+.review-arrow-btn {
+    align-self: flex-end;
+    /* right align */
+    width: 50px;
+    height: 50px;
+    background-color: #8fa969;
+    border-radius: 50%;
+    /* Make it circular if not already? Figma code showed square? "size-[50px] flex items-center justify-center". rounded usually implies circle for icons but let's check. 
+                           The previous screenshot showed a square. I'll stick to square or slight rounded. User said "exactly like design".
+                           Design node 360:939 doesn't show button in the snippet. 
+                           Wait, previous snippet 283:1365 showed "bg-[#8fa969] size-[50px]" but no border-radius mentioned (so square). 
+                           I will keep it square-ish like before. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.review-arrow-btn:hover {
+    background-color: #7a9255;
+}
+
+.review-arrow-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* =========================================
+   New Reviews Marquee Section
+   ========================================= */
+.home-reviews-marquee {
+    padding: 100px 0;
+    overflow: hidden;
+    /* Soft pink gradient based on screenshot */
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F5 100%);
+    position: relative;
+}
+
+/* Background decorations - Keep ellipses but adjust if needed */
+.reviews-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.reviews-bg-decor img {
+    position: absolute;
+    opacity: 0.5;
+}
+
+.reviews-track-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+    padding: 20px 0;
+    padding-left: 20px;
+    /* Initial offset */
+}
+
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Card Styling - Plain White Card */
+.review-marquee-card {
+    position: relative;
+    width: 300px;
+    /* Square-ish shape as per screenshot */
+    height: 300px;
+    background: #FFFFFF;
+    /* No border radius visible in screenshot, maybe very slight? sticking to clean box */
+    border-radius: 0;
+    padding: 32px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Screenshot shows subtle shadow or flat? Looks like flat white boxes on pink bg */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Top align */
+    gap: 16px;
+    text-align: left;
+}
+
+.review-marquee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.review-card-bg {
+    display: none;
+}
+
+/* Content Container */
+.review-card-overlay {
+    position: static;
+    background: transparent;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Space out content */
+}
+
+.review-card-text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Typography from Screenshot */
+.review-card-text h3 {
+    font-family: var(--font-family-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: #291f1e;
+    margin: 0;
+}
+
+.review-card-text p {
+    font-family: var(--font-family-sans);
+    font-size: 16px;
+    color: #291f1e;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Profile Photo - Bottom Left Circle */
+.review-profile-pic {
+    position: static;
+    /* In flow now */
+    width: 40px;
+    /* Smaller circle as per screenshot */
+    height: 40px;
+    background-color: #D9D9D9;
+    /* Placeholder gray */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: auto;
+    /* Push to bottom if flex column */
+    border: none;
+    box-shadow: none;
+}
+
+.review-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    /* Maybe blend it? Or keep real image */
+}
+
+/* Hide Arrow Button if not in simple design */
+.review-arrow-btn {
+    display: none;
+}
+
+/* =========================================
+   New Reviews Marquee Section
+   ========================================= */
+.home-reviews-marquee {
+    padding: 100px 0;
+    overflow: hidden;
+    /* Soft pink gradient based on screenshot */
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFF5F5 100%);
+    position: relative;
+}
+
+/* Background decorations - Keep ellipses but adjust if needed */
+.reviews-bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.reviews-bg-decor img {
+    position: absolute;
+    opacity: 0.5;
+}
+
+.reviews-track-container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.reviews-track {
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+    padding: 40px 20px;
+    padding-left: 20px;
+    /* Initial offset */
+}
+
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Card Styling - Plain White Card */
+.review-marquee-card {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 0;
+    padding: 32px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.review-marquee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.review-card-bg {
+    display: none;
+}
+
+/* Content Container */
+.review-card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Typography */
+.review-card-content h3 {
+    font-family: var(--font-family-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: #291f1e;
+    margin: 0;
+}
+
+.review-card-content p {
+    display: block;
+    /* Ensure visibility */
+    font-family: var(--font-family-sans);
+    font-size: 16px;
+    color: #291f1e;
+    line-height: 1.4;
+    margin: 0;
+    visibility: visible;
+    opacity: 1;
+    flex-grow: 1;
+    /* Allow it to take up space */
+}
+
+/* Profile Photo - Bottom Left Circle */
+.review-profile-pic {
+    width: 40px;
+    height: 40px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: auto;
+    /* Push to bottom */
+    flex-shrink: 0;
+}
+
+.review-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+/* Hide Arrow Button */
+.review-arrow-btn {
+    display: none;
+}
+
+/* ========================================
+   Who Are You Section
+   ======================================== */
+.who-are-you-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-yellow);
+}
+
+.who-are-you-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.who-are-you-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.who-card {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.who-card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.who-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.who-card:hover .who-card-image img {
+    transform: scale(1.05);
+}
+
+.who-card-content {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    width: calc(100% - 100px);
+    /* Leave room for button */
+    background: #ffffff;
+    padding: 24px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.who-card:hover .who-card-content {
+    transform: translateY(-5px);
+}
+
+.who-card-text h3 {
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+
+.who-card-text p {
+    font-size: 18px;
+    color: var(--color-text-dark);
+    line-height: 1.3;
+}
+
+.who-card-action {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    /* Instead of specific left calculation, stick to right */
+    width: 60px;
+    height: 60px;
+    /* Square button */
+    background: #8FA969;
+    /* Specific green from design */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background 0.3s ease;
+}
+
+.who-card-action img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.who-card-action:hover {
+    background: #7a9159;
+}
+
+/* Adjust layout to match Figma overlapping exactness if needed */
+.who-card-content {
+    width: 290px;
+    bottom: 50px;
+    left: 20px;
+}
+
+.who-card-action {
+    left: 310px;
+    /* 20 + 290 */
+    bottom: 50px;
+    right: auto;
+    width: 50px;
+    height: 50px;
+}
+
+/* Header Action Button */
+.arrow-square-btn {
+    width: 60px;
+    height: 60px;
+    border: 1px solid var(--color-text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.arrow-square-btn:hover {
+    background: var(--color-text-dark);
+    color: var(--color-text-light);
+}
+
+.arrow-square-btn img {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s ease;
+}
+
+.arrow-square-btn:hover img {
+    filter: invert(1) brightness(2);
+}
+
+@media (max-width: 1200px) {
+
+    /* Adjust for smaller container */
+    .who-card-content {
+        width: 240px;
+    }
+
+    .who-card-action {
+        left: 260px;
+        /* 20 + 240 */
+    }
+}
+
+@media (max-width: 992px) {
+    .who-are-you-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .who-are-you-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .who-card {
+        height: 500px;
+    }
+
+    .who-card-content {
+        width: calc(100% - 90px);
+    }
+
+    .who-card-action {
+        left: auto;
+        right: 20px;
+    }
+}
+
+/* Quality and Trust Section */
+.home-quality {
+    padding: 100px 0;
+    background-color: var(--color-bg-yellow);
+}
+
+.quality-header-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 66px;
+    margin-bottom: 55px;
+}
+
+.quality-header-row .section-title-huge {
+    margin-bottom: 0;
+    line-height: 1.1;
+    width: 610px;
+    flex-shrink: 0;
+}
+
+.quality-header-image {
+    width: 524px;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.quality-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.quality-cards-grid {
+    display: flex;
+    justify-content: space-between;
+    /* This should yield ~35px gaps given container 1200 - 4*275 = 100 / 3 = 33.3px */
+    align-items: flex-start;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.quality-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 275px;
+    /* Exact Figma width */
+    flex-shrink: 0;
+}
+
+/* Offsets for "jumbled" look based on Figma - Adjusted to user request for level alignment */
+.quality-card:nth-child(2),
+.quality-card:nth-child(4) {
+    transform: translateY(76px);
+}
+
+.quality-card-img {
+    width: 100%;
+    height: 262px;
+    overflow: hidden;
+}
+
+.quality-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.quality-card:hover .quality-card-img img {
+    transform: scale(1.05);
+}
+
+.quality-card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #291F1E;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    /* Ensure text is left aligned as per visual, though container centered in React code, visually looks left */
+}
+
+@media (max-width: 1240px) {
+
+    /* Squeeze slightly if container is smaller */
+    .quality-cards-grid {
+        flex-wrap: wrap;
+        /* Allow wrapping on smaller desktop */
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .quality-card:nth-child(2),
+    .quality-card:nth-child(4) {
+        transform: none;
+        /* Reset offsets when wrapping starts */
+    }
+
+    .quality-card:nth-child(2) {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .quality-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .quality-header-row .section-title-huge {
+        width: 100%;
+    }
+
+    .quality-header-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .quality-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 20px;
+    }
+
+    /* Reset offsets on mobile/tablet for better stacking */
+    .quality-card:nth-child(2),
+    .quality-card:nth-child(4) {
+        transform: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .quality-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   New Benefits Section
+   ========================================= */
+.home-benefits-new {
+    padding: 100px 0;
+    /* Light-themed background image provided by user */
+    background-image: url('assets/home/benefits-bg-new.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    color: var(--color-text-dark);
+}
+
+.benefits-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.benefits-visual {
+    flex: 1;
+    position: relative;
+    max-width: 600px;
+}
+
+.benefits-main-img {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    /* Screenshot shows no visible border radius or shadow, clean cut */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.benefits-main-img img {
+    width: 100%;
+    display: block;
+}
+
+/* Decorations removed as per screenshot */
+.benefits-decor-1,
+.benefits-decor-2 {
+    display: none;
+}
+
+.benefits-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.benefits-content h2 {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    row-gap: 50px;
+}
+
+.benefit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.benefit-icon {
+    display: none;
+}
+
+.benefit-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--color-text-dark);
+}
+
+.benefit-text p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-text-body);
+}
+
+@media (max-width: 1100px) {
+    .benefits-wrapper {
+        flex-direction: column;
+        gap: 60px;
+        align-items: flex-start;
+    }
+
+    .benefits-visual {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .benefits-main-img {
+        max-width: 800px;
+        /* Optional cap */
+    }
+
+    .benefits-content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-content h2 {
+        font-size: 40px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+/* =========================================
+   Gallery Split Section
+   ========================================= */
+.home-gallery-split {
+    padding: 100px 0;
+    background-color: var(--color-bg-yellow);
+}
+
+.gallery-split-wrapper {
+    display: flex;
+    gap: 32px;
+    align-items: flex-end;
+    /* Align bottom as per Figma flex items-end */
+}
+
+/* Left Grid */
+.gallery-left-grid {
+    width: 620px;
+    /* Height auto to accommodate grid, or fixed if we want to match image height exactly */
+    height: 383px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat-card-new {
+    width: 100%;
+    /* Fill grid cell */
+    height: 181px;
+    background: #FFFFFF;
+    border: 1px solid #EBEBEB;
+    /* Very subtle border */
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card-new:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon {
+    margin-bottom: 8px;
+    color: #1A1A1A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon svg {
+    stroke-width: 1.8px;
+    /* Slightly refined stroke */
+}
+
+/* Typography for Stats */
+.stat-card-new h3 {
+    font-size: 44px;
+    /* Larger bold number */
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1;
+    font-family: 'Outfit', sans-serif;
+}
+
+.stat-card-new p {
+    font-size: 18px;
+    /* Readable text */
+    color: #555555;
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* Right Feature Image */
+.gallery-right-feature {
+    width: 548px;
+    height: 384px;
+    position: relative;
+    border-radius: 0;
+    /* No curved corners */
+    overflow: hidden;
+}
+
+.gallery-right-feature img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+    .gallery-split-wrapper {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .gallery-left-grid {
+        width: 100%;
+        max-width: 620px;
+        height: auto;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .gallery-right-feature {
+        width: 100%;
+        max-width: 620px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 650px) {
+    .gallery-left-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* =========================================
+   Tell Us Your Requirement Section
+   ========================================= */
+.home-requirement {
+    padding: 80px 0;
+    background-color: var(--color-bg-yellow);
+}
+
+.home-requirement-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-requirement-title {
+    font-size: 48px;
+    font-family: 'Playfair Display', serif;
+    color: var(--color-text-dark);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.home-requirement-subtitle {
+    font-size: 18px;
+    color: var(--color-text-body);
+    margin-bottom: 40px;
+}
+
+.home-requirement-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.home-form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.home-form-input,
+.home-form-textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Outfit', sans-serif;
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
+}
+
+.home-form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Phone Input Group */
+.phone-input-group {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.country-code-select {
+    width: 140px;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+}
+
+.phone-input {
+    flex: 1;
+}
+
+.home-requirement-form .btn-primary {
+    align-self: center;
+    min-width: 200px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .home-form-row {
+        flex-direction: column;
+    }
+
+    .phone-input-group {
+        flex-direction: row;
+    }
+
+    .country-code-select {
+        width: 110px;
+    }
+}
+
+/* Adjust Gallery to be pixel perfect collage from Figma */
+.gallery-modern-grid {
+    display: block;
+    /* Override grid */
+    position: relative;
+    width: 100%;
+    /* Max height based on bottom-most item (Item 7 ends at 329+392=721px or Item 8 at 398+323=721px). Adding padding. */
+    height: 750px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: var(--color-bg-yellow);
+    /* Or transparent */
+    padding: 0;
+    /* Reset padding */
+    max-width: 100%;
+    /* Reset max-width if needed or keep 1600 */
+}
+
+/* Inner container centered to match Figma layout relative to 1440px or wider */
+.gallery-collage-inner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1641px;
+    /* From Figma Group size */
+    height: 100%;
+}
+
+.gallery-item {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 0;
+    grid-column: auto;
+    /* Reset grid */
+    grid-row: auto;
+    /* Reset grid */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Item Positioning (Y - 175px offset) */
+/* Item 1 (Left Tall) - Rect 36 */
+.item-1 {
+    left: 100px;
+    top: 0px;
+    width: 174px;
+    height: 382px;
+}
+
+/* Item 2 (Concrete) - Rect 38 */
+.item-2 {
+    left: 290px;
+    top: 70px;
+    width: 451px;
+    height: 312px;
+}
+
+/* Item 3 (Sofa) - Rect 46 */
+.item-3 {
+    left: 757px;
+    top: 70px;
+    width: 295px;
+    height: 243px;
+}
+
+/* Item 4 (Beige Bed) - Rect 43 */
+.item-4 {
+    left: 1068px;
+    top: 99px;
+    width: 290px;
+    height: 348px;
+}
+
+/* Item 5 (Right Tall/Brick) - Rect 45 */
+.item-5 {
+    left: 1374px;
+    top: 0px;
+    width: 267px;
+    height: 433px;
+}
+
+/* Item 6 (Window Living) - Rect 39 */
+.item-6 {
+    left: 397px;
+    top: 398px;
+    width: 344px;
+    height: 242px;
+}
+
+/* Item 7 (Dining) - Rect 40 */
+.item-7 {
+    left: 757px;
+    top: 329px;
+    width: 295px;
+    height: 392px;
+}
+
+/* Item 8 (Bed Yellow) - Rect 37 */
+.item-8 {
+    left: 100px;
+    top: 398px;
+    width: 281px;
+    height: 323px;
+}
+
+/* Item 9 (Frame/Small) - Rect 41 */
+.item-9 {
+    left: 1068px;
+    top: 463px;
+    width: 178px;
+    height: 242px;
+}
+
+/* Item 10 (Kitchen) - Rect 44 */
+.item-10 {
+    left: 1262px;
+    top: 463px;
+    width: 319px;
+    height: 242px;
+}
+
+/* Responsive - Switch to Grid on smaller screens */
+@media (max-width: 1100px) {
+    .gallery-modern-grid {
+        height: auto;
+        padding: 40px 20px;
+        display: block;
+        /* Ensure block */
+    }
+
+    .gallery-collage-inner {
+        position: static;
+        width: 100%;
+        height: auto;
+        transform: none;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .gallery-item {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        height: 300px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-collage-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 250px !important;
+    }
+}
+
+/* Gallery Header - Figma Match */
+.gallery-modern-header {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto 80px;
+    /* Space before grid */
+    padding-top: 40px;
+}
+
+.gallery-modern-title {
+    font-family: var(--font-family-serif, 'Playfair Display', serif);
+    font-size: 70px;
+    font-weight: 700;
+    color: #291f1e;
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+}
+
+.gallery-modern-subtitle {
+    font-family: var(--font-family-sans, 'Outfit', sans-serif);
+    font-size: 24px;
+    color: #291f1e;
+    line-height: 1.4;
+    max-width: 760px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .gallery-modern-title {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .gallery-modern-subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .gallery-modern-header {
+        margin-bottom: 40px;
+    }
+}
+
+       
