@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paracetamol API (USP Grade) - Evergrade</title>
+    <title>Trade Support Services - Evergrade</title>
     <meta name="description"
-        content="Premium quality Paracetamol API manufactured under strict GMP conditions. Connect with verified exporters for bulk pharmaceutical ingredients.">
+        content="From documentation to global expansion, we support every step of your trade journey.">
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons (if needed/available, otherwise SVG) -->
 </head>
 
-<body class="product-detail-page">
+<body class="services-page">
     <!-- Header / Navbar -->
     <header class="site-header">
         <div class="container header-container">
@@ -21,7 +22,7 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li class="has-dropdown">
-                        <a href="exports.html" class="nav-link active">Exports <span class="dropdown-arrow">▼</span></a>
+                        <a href="exports.html" class="nav-link">Exports <span class="dropdown-arrow">▼</span></a>
                         <div class="dropdown-menu">
                             <a href="products.html?type=export&category=grains">Grains & Cereals</a>
                             <a href="products.html?type=export&category=textiles">Textiles</a>
@@ -38,7 +39,7 @@
                             <a href="products.html?type=import&category=machinery">Machinery</a>
                         </div>
                     </li>
-                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="#" class="nav-link">Resources</a></li>
@@ -52,158 +53,171 @@
     </header>
 
     <main>
-        <!-- Back Navigation -->
-        <section class="back-nav-section">
-            <div class="container">
-                <a href="products.html" class="back-link">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    Back to Products
-                </a>
-            </div>
-        </section>
-
-        <!-- Product Detail Section -->
-        <section class="product-detail-section">
-            <div class="container">
-                <div class="product-detail-layout">
-                    <!-- Main Content -->
-                    <div class="product-detail-main">
-                        <!-- Product Header -->
-                        <div class="product-detail-header">
-                            <div class="product-title-row">
-                                <div class="product-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M10.5 20.5L4 14V10L10 4h4l6 6v4l-6.5 6.5" stroke-linecap="round"
-                                            stroke-linejoin="round" />
-                                        <circle cx="12" cy="12" r="3" />
-                                    </svg>
-                                </div>
-                                <h1 id="product-title">Paracetamol API (USP Grade)</h1>
-                            </div>
-                            <div class="product-rating-row">
-                                <span class="rating-badge">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                        <polygon
-                                            points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
-                                    </svg>
-                                    <span id="product-rating">4.8</span>
-                                </span>
-                            </div>
-                        </div>
-
-                        <!-- Supplier Info -->
-                        <div class="supplier-detail-info">
-                            <div class="supplier-name-location">
-                                <span class="supplier-name-text" id="supplier-name">PharmaCorp India</span>
-                                <span class="supplier-location" id="supplier-location">Mumbai, India</span>
-                                <span class="supplier-experience" id="supplier-experience">15 years experience</span>
-                            </div>
-                            <div class="certifications-row" id="certifications">
-                                <span class="cert-badge">GMP</span>
-                                <span class="cert-badge">WHO</span>
-                                <span class="cert-badge">ISO</span>
-                                <span class="cert-badge">FDA</span>
-                            </div>
-                        </div>
-
-                        <!-- Product Description -->
-                        <div class="product-description">
-                            <p id="product-description">Premium quality Paracetamol API manufactured under strict GMP
-                                conditions. Suitable for pharmaceutical formulations with consistent purity and quality
-                                standards.</p>
-                        </div>
-
-                        <!-- Specifications -->
-                        <div class="specifications-section">
-                            <h2>Specifications</h2>
-                            <div class="specifications-grid" id="specifications">
-                                <div class="spec-item">
-                                    <span class="spec-item-label">Purity</span>
-                                    <span class="spec-item-value" id="spec-purity">99.5% min</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-item-label">Packaging</span>
-                                    <span class="spec-item-value" id="spec-packaging">25kg HDPE drums</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-item-label">Shelf Life</span>
-                                    <span class="spec-item-value" id="spec-shelf-life">36 months</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-item-label">Storage</span>
-                                    <span class="spec-item-value" id="spec-storage">Cool, dry place</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pricing & Terms -->
-                        <div class="pricing-section">
-                            <h2>Pricing & Terms</h2>
-                            <div class="pricing-grid">
-                                <div class="pricing-item highlight">
-                                    <span class="pricing-label">Price Range</span>
-                                    <span class="pricing-value price" id="price-range">$45-55/kg</span>
-                                </div>
-                                <div class="pricing-item">
-                                    <span class="pricing-label">MOQ</span>
-                                    <span class="pricing-value" id="moq">1000 kg</span>
-                                </div>
-                                <div class="pricing-item">
-                                    <span class="pricing-label">Lead Time</span>
-                                    <span class="pricing-value" id="lead-time">15-20 days</span>
-                                </div>
-                                <div class="pricing-item">
-                                    <span class="pricing-label">Capacity</span>
-                                    <span class="pricing-value" id="capacity">50 MT/month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sidebar -->
-                    <aside class="product-detail-sidebar">
-                        <div class="interested-card">
-                            <h3>Interested?</h3>
-                            <p>Connect with the supplier directly to discuss your requirements and get a customized
-                                quote.</p>
-                            <div class="cta-buttons-stack">
-                                <button class="btn btn-primary full-width">Request Quote</button>
-                                <button class="btn btn-outline-primary full-width">Contact Supplier</button>
-                            </div>
-                            <div class="trust-signals">
-                                <div class="trust-item">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                        <path d="M9 12l2 2 4-4" />
-                                    </svg>
-                                    <span>Verified Supplier</span>
-                                </div>
-                                <div class="trust-item">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                                        <path d="M7 11V7a5 5 0 0110 0v4" />
-                                    </svg>
-                                    <span>Secure Transactions</span>
-                                </div>
-                                <div class="trust-item">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                                        <polyline points="22 4 12 14.01 9 11.01" />
-                                    </svg>
-                                    <span>Quality Assured</span>
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
+        <!-- Services Hero -->
+        <section class="services-hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="section-label-hero">&mdash; SERVICES &mdash;</span>
+                    <h1>Trade Support Services</h1>
+                    <p class="hero-subtext">From documentation to global expansion, we support every step</p>
+                    <a href="contact.html" class="btn btn-primary btn-lg">Schedule Free Consultation</a>
                 </div>
             </div>
         </section>
+
+        <!-- Transaction Support Section -->
+        <section class="support-section">
+            <div class="container">
+                <div class="section-header text-left">
+                    <h2>Transaction Support</h2>
+                </div>
+                <div class="support-grid">
+                    <!-- Card 1: Documentation -->
+                    <div class="support-card">
+                        <div class="card-icon-box orange-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Documentation Support</h3>
+                        <p class="price-tag">₹5K-15K per deal</p>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">✓</span> B/L & Invoices
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span> Customs declarations
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span> Certificate of Origin
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span> Compliance checks
+                            </li>
+                        </ul>
+                        <p class="card-footer-text">Timeline: 2-3 business days</p>
+                    </div>
+
+                    <!-- Card 2: Trade Finance -->
+                    <div class="support-card">
+                        <div class="card-icon-box orange-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h3>Trade Finance</h3>
+                        <p class="price-tag">2-5% of deal value</p>
+                        <ul class="feature-list">
+                            <li><span class="check-icon">✓</span> LC facilitation</li>
+                            <li><span class="check-icon">✓</span> Invoice financing</li>
+                            <li><span class="check-icon">✓</span> Payment negotiation</li>
+                            <li><span class="check-icon">✓</span> Currency guidance</li>
+                        </ul>
+                        <p class="card-footer-text">Timeline: Based on deal size</p>
+                    </div>
+
+                    <!-- Card 3: Compliance Guidance -->
+                    <div class="support-card">
+                        <div class="card-icon-box orange-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h3>Compliance Guidance</h3>
+                        <p class="price-tag">₹5K-15K/month</p>
+                        <ul class="feature-list">
+                            <li><span class="check-icon">✓</span> Country regulations</li>
+                            <li><span class="check-icon">✓</span> Tariff calculations</li>
+                            <li><span class="check-icon">✓</span> Certifications</li>
+                            <li><span class="check-icon">✓</span> Quarterly updates</li>
+                        </ul>
+                        <p class="card-footer-text">Timeline: 28+ countries covered</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mentorship Program Section -->
+        <section class="mentorship-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Mentorship Program</h2>
+                </div>
+                <div class="mentorship-grid">
+                    <!-- Free Plan -->
+                    <div class="mentorship-card">
+                        <div class="plan-header">
+                            <h3>Free</h3>
+                            <div class="plan-price">
+                                <span class="currency">₹</span>0 <span class="period">/30 days</span>
+                            </div>
+                        </div>
+                        <ul class="feature-list">
+                            <li><span class="check-icon">✓</span> Mentor assignment</li>
+                            <li><span class="check-icon">✓</span> Export readiness assessment</li>
+                            <li><span class="check-icon">✓</span> Goal setting & roadmap</li>
+                            <li><span class="check-icon">✓</span> Resource library</li>
+                            <li><span class="check-icon">✓</span> Weekly Q&A sessions</li>
+                        </ul>
+                        <div class="plan-action">
+                            <a href="#" class="btn btn-outline-dark full-width">Get Started</a>
+                        </div>
+                    </div>
+
+                    <!-- Starter Plan -->
+                    <div class="mentorship-card popular-plan">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Starter</h3>
+                            <div class="plan-price">
+                                <span class="currency">₹</span>5K <span class="period">/per month</span>
+                            </div>
+                        </div>
+                        <ul class="feature-list">
+                            <li><span class="check-icon">✓</span> Everything in Free</li>
+                            <li><span class="check-icon">✓</span> Weekly mentor calls (45 min)</li>
+                            <li><span class="check-icon">✓</span> Documentation support</li>
+                            <li><span class="check-icon">✓</span> First buyer introduction</li>
+                            <li><span class="check-icon">✓</span> Market guidance</li>
+                        </ul>
+                        <div class="plan-action">
+                            <a href="#" class="btn btn-primary full-width">Get Started</a>
+                        </div>
+                    </div>
+
+                    <!-- Pro Plan -->
+                    <div class="mentorship-card">
+                        <div class="plan-header">
+                            <h3>Pro</h3>
+                            <div class="plan-price">
+                                <span class="currency">₹</span>15K <span class="period">/per month</span>
+                            </div>
+                        </div>
+                        <ul class="feature-list">
+                            <li><span class="check-icon">✓</span> Everything in Starter</li>
+                            <li><span class="check-icon">✓</span> Bi-weekly mentor calls</li>
+                            <li><span class="check-icon">✓</span> Dedicated partner manager</li>
+                            <li><span class="check-icon">✓</span> 3 buyer introductions/month</li>
+                            <li><span class="check-icon">✓</span> Trade finance help</li>
+                            <li><span class="check-icon">✓</span> Market expansion support</li>
+                        </ul>
+                        <div class="plan-action">
+                            <a href="#" class="btn btn-outline-dark full-width">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
