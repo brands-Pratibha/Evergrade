@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Evergrade</title>
+    <meta name="description"
+        content="Expert guides, compliance documents, and market insights to help you navigate global trade.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="Evergrade" class="logo-img">
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="exports.html" class="nav-link">
+                            Exports
+                            <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?type=export&category=grains">Grains & Cereals</a>
+                            <a href="products.html?type=export&category=textiles">Textiles</a>
+                            <a href="products.html?type=export&category=agro">Agro-Commodities</a>
+                            <a href="products.html?type=export&category=chemicals">Chemicals</a>
+                            <a href="products.html?type=export&category=engineering">Engineering</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="imports.html" class="nav-link">
+                            Imports
+                            <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?type=import">All Imports</a>
+                            <a href="products.html?type=import&category=electronics">Electronics</a>
+                            <a href="products.html?type=import&category=machinery">Machinery</a>
+                        </div>
+                    </li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="resources.html" class="nav-link active">Resources</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Resources Hero -->
+        <section class="resources-hero">
+            <div class="container">
+                <div class="resources-hero-content">
+                    <div class="knowledge-tag">
+                        Knowledge Center
+                    </div>
+                    <h1>Resources & Insights</h1>
+                    <p>Expert guides, compliance documents, and market insights.</p>
+
+                    <div class="resource-search-container">
+                        <div class="resource-search-box">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="search-icon">
+                                <path
+                                    d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                            <input type="text" placeholder="Search resources, guides, webinars...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Filters -->
+        <div class="container" style="margin-top: -30px; margin-bottom: 40px; position: relative; z-index: 10;">
+            <div class="resources-filters" style="justify-content: center;">
+                <button class="filter-btn active">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    All Resources
+                </button>
+                <button class="filter-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    Blog
+                </button>
+                <button class="filter-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Guides
+                </button>
+                <button class="filter-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <path d="M12 18v-6"></path>
+                        <path d="M12 8h.01"></path>
+                    </svg>
+                    Compliance
+                </button>
+                <button class="filter-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+                        <polyline points="17 2 12 7 7 2"></polyline>
+                    </svg>
+                    Webinars
+                </button>
+                <button class="filter-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Product Specs
+                </button>
+            </div>
+        </div>
+
+        <!-- Blog & Insights Section -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">LATEST UPDATES</span>
+                    <h2>Blog & Insights</h2>
+                    <p>Expert industry news, updates, and more.</p>
+                </div>
+
+                <div class="blog-grid">
+                    <!-- Blog 1 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="assets/home/cat-grains-new.jpg" alt="Future of Agri-Exports">
+                            <span class="blog-tag">Market</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Jan 22, 2026 • 5 min read</div>
+                            <h3>Future of Agri-Exports: 2026 Outlook</h3>
+                            <p>A deep dive into the projected trends for agricultural exports.</p>
+                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <!-- Blog 2 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="assets/home/cat-steel.png" alt="Steel Industry Analysis">
+                            <span class="blog-tag">Industry</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Jan 18, 2026 • 8 min read</div>
+                            <h3>Steel Industry Analysis: Global Demand</h3>
+                            <p>Understanding the shifts in global steel consumption.</p>
+                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <!-- Blog 3 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="assets/home/cat-textiles-new.jpg" alt="Textile Sourcing">
+                            <span class="blog-tag">Guide</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Jan 15, 2026 • 6 min read</div>
+                            <h3>Sustainable Textile Sourcing Guide</h3>
+                            <p>Best practices for sourcing eco-friendly textiles.</p>
+                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <!-- Blog 4 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="assets/home/gallery-electronics.png" alt="Electronics Trade">
+                            <span class="blog-tag">Tech</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Jan 10, 2026 • 4 min read</div>
+                            <h3>Electronics Trade: Import Regulations</h3>
+                            <p>Navigating the complex landscape of electronics imports.</p>
+                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <!-- Blog 5 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="assets/home/gallery-steel-coil.jpg" alt="Logistics Efficiency">
+                            <span class="blog-tag">Logistics</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Jan 05, 2026 • 7 min read</div>
+                            <h3>Improving Supply Chain Efficiency</h3>
+                            <p>Tips for streamlining your logistics and reducing costs.</p>
+                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <!-- Blog 6 -->
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="assets/home/quality_leather.png" alt="Leather Market">
+                            <span class="blog-tag">Market</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">Jan 02, 2026 • 5 min read</div>
+                            <h3>Emerging Markets for Leather Goods</h3>
+                            <p>Identifying new opportunities in the global leather market.</p>
+                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Export & Import Guides -->
+        <section class="resources-section bg-light">
+            <div class="container">
+                <div class="section-header-center">
+                    <div class="knowledge-tag" style="justify-content: center; margin-bottom: 16px;">
+                        Comprehensive Guides
+                    </div>
+                    <h2>Export & Import Guides</h2>
+                    <p>Step-by-step documentation and process guides</p>
+                </div>
+
+                <div class="guides-grid">
+                    <!-- Guide 1 -->
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <div class="guide-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="guide-badge badge-export">Export</span>
+                        </div>
+                        <h3>Complete Export Documentation Checklist</h3>
+                        <p>Comprehensive list of all documents required for exporting goods from India.</p>
+                        <div class="guide-footer">
+                            <span class="guide-meta">24 pages</span>
+                            <span class="guide-meta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg> 12.5k</span>
+                        </div>
+                    </div>
+                    <!-- Guide 2 -->
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <div class="guide-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="guide-badge badge-import">Import</span>
+                        </div>
+                        <h3>Import License Application Guide</h3>
+                        <p>Step-by-step process for obtaining import licenses across different product categories.</p>
+                        <div class="guide-footer">
+                            <span class="guide-meta">18 pages</span>
+                            <span class="guide-meta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg> 8.3k</span>
+                        </div>
+                    </div>
+                    <!-- Guide 3 -->
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <div class="guide-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="guide-badge badge-export">Export</span>
+                        </div>
+                        <h3>Letters of Credit: Complete Handbook</h3>
+                        <p>Everything you need to know about LCs, from application to settlement.</p>
+                        <div class="guide-footer">
+                            <span class="guide-meta">32 pages</span>
+                            <span class="guide-meta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg> 15.7k</span>
+                        </div>
+                    </div>
+                    <!-- Guide 4 -->
+                    <div class="guide-card">
+                        <div class="guide-card-header">
+                            <div class="guide-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="guide-badge badge-both">Both</span>
+                        </div>
+                        <h3>Shipping Incoterms 2020 Explained</h3>
+                        <p>Detailed breakdown of all Incoterms with practical examples and usage scenarios.</p>
+                        <div class="guide-footer">
+                            <span class="guide-meta">28 pages</span>
+                            <span class="guide-meta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg> 11.2k</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance Documents -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <div class="knowledge-tag" style="justify-content: center; margin-bottom: 16px;">
+                        Essential Documents
+                    </div>
+                    <h2>Compliance Documents</h2>
+                    <p>Official forms, templates, and regulatory guidelines</p>
+                </div>
+
+                <div class="compliance-grid">
+                    <!-- Row 1 -->
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Regulatory</span>
+                                <h3>FEMA Guidelines 2026 - Complete</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">PDF</span>
+                            <span class="comp-size">3.2 MB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Jan 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Regulatory</span>
+                                <h3>RBI Circular - Foreign Trade</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">PDF</span>
+                            <span class="comp-size">1.8 MB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Dec 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Template</span>
+                                <h3>Export Declaration Form (SDF) - Template</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">DOCX</span>
+                            <span class="comp-size">245 KB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Jan 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Form</span>
+                                <h3>IEC Application Form & Instructions</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">PDF</span>
+                            <span class="comp-size">512 KB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Nov 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Checklist</span>
+                                <h3>Product Certification</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">XLSX</span>
+                            <span class="comp-size">890 KB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Dec 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Guide</span>
+                                <h3>Anti-Money Laundering</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">PDF</span>
+                            <span class="comp-size">2.1 MB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Oct 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Update</span>
+                                <h3>DGFT Policy Updates - Q4 2025</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">PDF</span>
+                            <span class="comp-size">1.5 MB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Dec 2025</span>
+                        </div>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="comp-card-top">
+                            <div class="comp-icon-box">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="comp-icon">
+                                    <path
+                                        d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
+                                        stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M14 2V8H20" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 13H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M16 17H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M10 9H8" stroke="#0F766E" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="comp-header-text">
+                                <span class="comp-type">Template</span>
+                                <h3>Customs Valuation Agreement</h3>
+                            </div>
+                        </div>
+                        <div class="comp-details">
+                            <span class="comp-format">DOCX</span>
+                            <span class="comp-size">320 KB</span>
+                        </div>
+                        <div class="comp-footer">
+                            <span class="comp-updated">Updated: Sep 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Webinar Recordings -->
+        <section class="resources-section bg-light">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">WATCH & LEARN</span>
+                    <h2>Webinar Recordings</h2>
+                    <p>Learn from industry experts and successful traders.</p>
+                </div>
+
+                <div class="webinar-grid">
+                    <!-- Webinar 1 -->
+                    <div class="webinar-card">
+                        <div class="webinar-thumb">
+                            <img src="assets/home/benefits-hero-new.png" alt="Webinar 1">
+                            <div class="play-btn">▶</div>
+                        </div>
+                        <div class="webinar-content">
+                            <h3>Mastering Export Trade Finance 101</h3>
+                            <p>A.K. Sharma • Trade Expert</p>
+                            <div class="webinar-footer">
+                                <span>45 mins</span>
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Webinar 2 -->
+                    <div class="webinar-card">
+                        <div class="webinar-thumb">
+                            <img src="assets/home/gallery-feature.png" alt="Webinar 2">
+                            <div class="play-btn">▶</div>
+                        </div>
+                        <div class="webinar-content">
+                            <h3>Navigating Custom Duty Changes</h3>
+                            <p>Priya Singh • Customs Officer</p>
+                            <div class="webinar-footer">
+                                <span>60 mins</span>
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Webinar 3 -->
+                    <div class="webinar-card">
+                        <div class="webinar-thumb">
+                            <img src="assets/home/about-image.png" alt="Webinar 3">
+                            <div class="play-btn">▶</div>
+                        </div>
+                        <div class="webinar-content">
+                            <h3>Effective Supply Chain Management</h3>
+                            <p>Rajiv Malhotra • Logistics Head</p>
+                            <div class="webinar-footer">
+                                <span>50 mins</span>
+                                <span>Hindi/English</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Spec Sheets -->
+        <section class="resources-section">
+            <div class="container">
+                <div class="section-header-center">
+                    <span class="section-subtitle">TECHNICAL DATA</span>
+                    <h2>Product Specification Sheets</h2>
+                    <p>Detailed specifications for our listed products.</p>
+                </div>
+
+                <div class="specs-wrapper">
+                    <!-- Category 1 -->
+                    <div class="spec-category">
+                        <h3>Agricultural Products</h3>
+                        <div class="spec-list">
+                            <div class="spec-item">
+                                <span class="spec-name">Premium Indian Basmati Rice</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">Organic Wheat Grades</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">Yellow Maize Specs</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2 -->
+                    <div class="spec-category">
+                        <h3>Metals & Mining</h3>
+                        <div class="spec-list">
+                            <div class="spec-item">
+                                <span class="spec-name">HR/CR Steel Coils</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">Aluminum Ingots 99.7%</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">Copper Cathode Specs</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Category 3 -->
+                    <div class="spec-category">
+                        <h3>Chemicals</h3>
+                        <div class="spec-list">
+                            <div class="spec-item">
+                                <span class="spec-name">Industrial Ethanol</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-name">Sulphuric Acid 98%</span>
+                                <a href="#" class="spec-download">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <section class="resource-cta-footer">
+            <div class="container">
+                <h2>Stay Updated with Latest Resources</h2>
+                <p>Subscribe to our newsletter to receive the latest guides, market insights, and webinar invitations
+                    directly to your inbox.</p>
+                <form class="resource-subscribe-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit" class="btn btn-primary">Subscribe Now</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.svg" alt="Evergrade" class="logo-img">
+                    </a>
+                    <p class="footer-tagline">B2B raw materials procurement & credit platform</p>
+                    <div class="footer-social-links">
+                        <a href="#" class="social-icon-btn" aria-label="Facebook">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" />
+                            </svg>
+                        </a>
+                        <!-- Added other social icons similar to index -->
+                        <a href="#" class="social-icon-btn" aria-label="Twitter"><svg width="18" height="18"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg></a>
+                        <a href="#" class="social-icon-btn" aria-label="LinkedIn"><svg width="18" height="18"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.454C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <!-- Standard Footer Columns -->
+                <div class="home-footer-col">
+                    <h4>For Exporters</h4>
+                    <ul>
+                        <li><a href="#">Start Exporting</a></li>
+                        <li><a href="#">Export Categories</a></li>
+                        <li><a href="#">Documentation Help</a></li>
+                    </ul>
+                </div>
+                <div class="home-footer-col">
+                    <h4>For Importers</h4>
+                    <ul>
+                        <li><a href="products.html">Browse Suppliers</a></li>
+                        <li><a href="imports.html">Import Categories</a></li>
+                        <li><a href="#">Quality Assurance</a></li>
+                    </ul>
+                </div>
+                <div class="home-footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Evergrade</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="footer-categories-section">
+                <h4 class="footer-categories-title">Categories</h4>
+                <div class="footer-categories-grid">
+                    <div class="footer-category-col">
+                        <a href="products.html?category=grains">Grains & Cereals</a>
+                        <a href="products.html?category=pulses">Pulses & Lentils</a>
+                        <a href="products.html?category=grocery">Grocery & Spices</a>
+                    </div>
+                    <div class="footer-category-col">
+                        <a href="products.html?category=steel">Steel Products</a>
+                        <a href="products.html?category=nonferrous">Non Ferrous Metals</a>
+                    </div>
+                    <!-- Truncated other cats for brevity as they are same as index -->
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Evergrade. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
