@@ -1,12 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Navigation
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
     const navList = document.querySelector('.nav-list');
     const headerActions = document.querySelector('.header-actions');
 
-    if (mobileMenuToggle) {
+    // Open mobile menu
+    if (mobileMenuToggle && mobileNav) {
         mobileMenuToggle.addEventListener('click', () => {
-            // Basic mobile menu toggle logic
-            navList.classList.toggle('active'); // Assumption: CSS handles .active
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close mobile menu - close button
+    if (mobileNavClose && mobileNav) {
+        mobileNavClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close mobile menu - click outside
+    if (mobileNav) {
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target === mobileNav) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // Legacy mobile menu toggle for other pages
+    if (mobileMenuToggle && navList && !mobileNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
             console.log('Mobile menu clicked');
         });
     }

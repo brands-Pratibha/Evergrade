@@ -1,3 +1,5 @@
+Implement this design from Figma.
+@https://www.figma.com/design/LI2srqaAXLGRTznhzvZ6GX/evergrade?node-id=103-29796&m=dev
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,7 +118,7 @@
                     </svg>
                     All Resources
                 </button>
-                <button class="filter-btn">
+                <a href="blog.html" class="filter-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -126,7 +128,7 @@
                         <polyline points="10 9 9 9 8 9"></polyline>
                     </svg>
                     Blog
-                </button>
+                </a>
                 <button class="filter-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -145,114 +147,101 @@
                     </svg>
                     Compliance
                 </button>
-                <button class="filter-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                        <polyline points="17 2 12 7 7 2"></polyline>
-                    </svg>
-                    Webinars
-                </button>
-                <button class="filter-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Product Specs
-                </button>
+
+
             </div>
         </div>
 
         <!-- Blog & Insights Section -->
-        <section class="resources-section">
+        <section class="resources-section" id="blog">
             <div class="container">
                 <div class="section-header-center">
-                    <span class="section-subtitle">LATEST UPDATES</span>
+                    <span class="section-subtitle">LATEST ARTICLES</span>
                     <h2>Blog & Insights</h2>
-                    <p>Expert industry news, updates, and more.</p>
+                    <p>Expert analysis on trade, compliance, and market trends. <a href="blog.html"
+                            style="color: var(--color-primary); font-weight: 600;">View All Articles →</a></p>
                 </div>
 
                 <div class="blog-grid">
-                    <!-- Blog 1 -->
-                    <div class="blog-card">
+                    <!-- Blog 1: FEMA Compliance -->
+                    <a href="blog-fema-compliance.html" class="blog-card">
                         <div class="blog-img">
-                            <img src="assets/home/cat-grains-new.jpg" alt="Future of Agri-Exports">
-                            <span class="blog-tag">Market</span>
+                            <img src="assets/home/cat-grains-new.jpg"
+                                alt="Understanding FEMA Compliance for Export Businesses">
+                            <span class="blog-tag">Compliance</span>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">Jan 22, 2026 • 5 min read</div>
-                            <h3>Future of Agri-Exports: 2026 Outlook</h3>
-                            <p>A deep dive into the projected trends for agricultural exports.</p>
-                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                            <div class="blog-meta">Jan 15, 2026 • 8 min read</div>
+                            <h3>Understanding FEMA Compliance for Export Businesses</h3>
+                            <p>A comprehensive guide to navigating Foreign Exchange Management Act regulations.</p>
+                            <span class="read-more-link">Read More <span>&rarr;</span></span>
                         </div>
-                    </div>
-                    <!-- Blog 2 -->
-                    <div class="blog-card">
+                    </a>
+                    <!-- Blog 2: Textile Markets -->
+                    <a href="blog-textile-markets.html" class="blog-card">
                         <div class="blog-img">
-                            <img src="assets/home/cat-steel.png" alt="Steel Industry Analysis">
-                            <span class="blog-tag">Industry</span>
+                            <img src="assets/home/cat-textiles-new.jpg" alt="Top 10 Export Markets for Indian Textiles">
+                            <span class="blog-tag">Market Insights</span>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">Jan 18, 2026 • 8 min read</div>
-                            <h3>Steel Industry Analysis: Global Demand</h3>
-                            <p>Understanding the shifts in global steel consumption.</p>
-                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                            <div class="blog-meta">Jan 12, 2026 • 6 min read</div>
+                            <h3>Top 10 Export Markets for Indian Textiles in 2026</h3>
+                            <p>Discover the most promising international markets for textile exports.</p>
+                            <span class="read-more-link">Read More <span>&rarr;</span></span>
                         </div>
-                    </div>
-                    <!-- Blog 3 -->
-                    <div class="blog-card">
+                    </a>
+                    <!-- Blog 3: Customs Documentation -->
+                    <a href="blog-customs-documentation.html" class="blog-card">
                         <div class="blog-img">
-                            <img src="assets/home/cat-textiles-new.jpg" alt="Textile Sourcing">
-                            <span class="blog-tag">Guide</span>
+                            <img src="assets/home/cat-steel.png" alt="How to Navigate Customs Documentation">
+                            <span class="blog-tag">Trade</span>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">Jan 15, 2026 • 6 min read</div>
-                            <h3>Sustainable Textile Sourcing Guide</h3>
-                            <p>Best practices for sourcing eco-friendly textiles.</p>
-                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                            <div class="blog-meta">Jan 10, 2026 • 10 min read</div>
+                            <h3>How to Navigate Customs Documentation</h3>
+                            <p>Master the art of customs documentation with our detailed walkthrough.</p>
+                            <span class="read-more-link">Read More <span>&rarr;</span></span>
                         </div>
-                    </div>
-                    <!-- Blog 4 -->
-                    <div class="blog-card">
+                    </a>
+                    <!-- Blog 4: Digital Trade Finance -->
+                    <a href="blog-trade-finance.html" class="blog-card">
                         <div class="blog-img">
-                            <img src="assets/home/gallery-electronics.png" alt="Electronics Trade">
-                            <span class="blog-tag">Tech</span>
+                            <img src="assets/home/gallery-electronics.png" alt="Digital Trade Finance">
+                            <span class="blog-tag">Trade</span>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">Jan 10, 2026 • 4 min read</div>
-                            <h3>Electronics Trade: Import Regulations</h3>
-                            <p>Navigating the complex landscape of electronics imports.</p>
-                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                            <div class="blog-meta">Jan 5, 2026 • 7 min read</div>
+                            <h3>Digital Trade Finance: The Future of B2B Payments</h3>
+                            <p>Explore how blockchain and digital solutions are revolutionizing trade payments.</p>
+                            <span class="read-more-link">Read More <span>&rarr;</span></span>
                         </div>
-                    </div>
-                    <!-- Blog 5 -->
-                    <div class="blog-card">
+                    </a>
+                    <!-- Blog 5: HS Codes -->
+                    <a href="blog-hs-codes.html" class="blog-card">
                         <div class="blog-img">
-                            <img src="assets/home/gallery-steel-coil.jpg" alt="Logistics Efficiency">
-                            <span class="blog-tag">Logistics</span>
+                            <img src="assets/home/gallery-steel-coil.jpg" alt="Understanding HS Codes">
+                            <span class="blog-tag">Compliance</span>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">Jan 05, 2026 • 7 min read</div>
-                            <h3>Improving Supply Chain Efficiency</h3>
-                            <p>Tips for streamlining your logistics and reducing costs.</p>
-                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                            <div class="blog-meta">Jan 5, 2026 • 12 min read</div>
+                            <h3>Understanding HS Codes: Complete Classification Guide</h3>
+                            <p>Learn how to correctly classify your products using Harmonized System codes.</p>
+                            <span class="read-more-link">Read More <span>&rarr;</span></span>
                         </div>
-                    </div>
-                    <!-- Blog 6 -->
-                    <div class="blog-card">
+                    </a>
+                    <!-- Blog 6: Africa Markets -->
+                    <a href="blog-africa-markets.html" class="blog-card">
                         <div class="blog-img">
-                            <img src="assets/home/quality_leather.png" alt="Leather Market">
-                            <span class="blog-tag">Market</span>
+                            <img src="assets/home/quality_leather.png" alt="Emerging Markets Africa">
+                            <span class="blog-tag">Market Insights</span>
                         </div>
                         <div class="blog-content">
-                            <div class="blog-meta">Jan 02, 2026 • 5 min read</div>
-                            <h3>Emerging Markets for Leather Goods</h3>
-                            <p>Identifying new opportunities in the global leather market.</p>
-                            <a href="#" class="read-more-link">Read More <span>&rarr;</span></a>
+                            <div class="blog-meta">Jan 3, 2026 • 9 min read</div>
+                            <h3>Emerging Markets: Africa's Growing Import Demand</h3>
+                            <p>Analyze the rising opportunities in African markets for Indian exporters.</p>
+                            <span class="read-more-link">Read More <span>&rarr;</span></span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -642,129 +631,9 @@
             </div>
         </section>
 
-        <!-- Webinar Recordings -->
-        <section class="resources-section bg-light">
-            <div class="container">
-                <div class="section-header-center">
-                    <span class="section-subtitle">WATCH & LEARN</span>
-                    <h2>Webinar Recordings</h2>
-                    <p>Learn from industry experts and successful traders.</p>
-                </div>
 
-                <div class="webinar-grid">
-                    <!-- Webinar 1 -->
-                    <div class="webinar-card">
-                        <div class="webinar-thumb">
-                            <img src="assets/home/benefits-hero-new.png" alt="Webinar 1">
-                            <div class="play-btn">▶</div>
-                        </div>
-                        <div class="webinar-content">
-                            <h3>Mastering Export Trade Finance 101</h3>
-                            <p>A.K. Sharma • Trade Expert</p>
-                            <div class="webinar-footer">
-                                <span>45 mins</span>
-                                <span>English</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Webinar 2 -->
-                    <div class="webinar-card">
-                        <div class="webinar-thumb">
-                            <img src="assets/home/gallery-feature.png" alt="Webinar 2">
-                            <div class="play-btn">▶</div>
-                        </div>
-                        <div class="webinar-content">
-                            <h3>Navigating Custom Duty Changes</h3>
-                            <p>Priya Singh • Customs Officer</p>
-                            <div class="webinar-footer">
-                                <span>60 mins</span>
-                                <span>English</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Webinar 3 -->
-                    <div class="webinar-card">
-                        <div class="webinar-thumb">
-                            <img src="assets/home/about-image.png" alt="Webinar 3">
-                            <div class="play-btn">▶</div>
-                        </div>
-                        <div class="webinar-content">
-                            <h3>Effective Supply Chain Management</h3>
-                            <p>Rajiv Malhotra • Logistics Head</p>
-                            <div class="webinar-footer">
-                                <span>50 mins</span>
-                                <span>Hindi/English</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Product Spec Sheets -->
-        <section class="resources-section">
-            <div class="container">
-                <div class="section-header-center">
-                    <span class="section-subtitle">TECHNICAL DATA</span>
-                    <h2>Product Specification Sheets</h2>
-                    <p>Detailed specifications for our listed products.</p>
-                </div>
 
-                <div class="specs-wrapper">
-                    <!-- Category 1 -->
-                    <div class="spec-category">
-                        <h3>Agricultural Products</h3>
-                        <div class="spec-list">
-                            <div class="spec-item">
-                                <span class="spec-name">Premium Indian Basmati Rice</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-name">Organic Wheat Grades</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-name">Yellow Maize Specs</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category 2 -->
-                    <div class="spec-category">
-                        <h3>Metals & Mining</h3>
-                        <div class="spec-list">
-                            <div class="spec-item">
-                                <span class="spec-name">HR/CR Steel Coils</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-name">Aluminum Ingots 99.7%</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-name">Copper Cathode Specs</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Category 3 -->
-                    <div class="spec-category">
-                        <h3>Chemicals</h3>
-                        <div class="spec-list">
-                            <div class="spec-item">
-                                <span class="spec-name">Industrial Ethanol</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-name">Sulphuric Acid 98%</span>
-                                <a href="#" class="spec-download">Download</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Footer CTA -->
         <section class="resource-cta-footer">
