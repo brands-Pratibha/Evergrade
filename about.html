@@ -17,47 +17,72 @@
 
 <body class="about-page">
 
+    <!-- Header (Same as other pages) -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="Evergrade" class="logo-img">
+            </a>
+
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="has-dropdown">
+                        <a href="exports.html" class="nav-link">
+                            Exports
+                            <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?type=export&category=grains">Grains & Cereals</a>
+                            <a href="products.html?type=export&category=textiles">Textiles</a>
+                            <a href="products.html?type=export&category=agro">Agro-Commodities</a>
+                            <a href="products.html?type=export&category=chemicals">Chemicals</a>
+                            <a href="products.html?type=export&category=engineering">Engineering</a>
+                        </div>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="imports.html" class="nav-link">
+                            Imports
+                            <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="products.html?type=import">All Imports</a>
+                            <a href="products.html?type=import&category=electronics">Electronics</a>
+                            <a href="products.html?type=import&category=machinery">Machinery</a>
+                        </div>
+                    </li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="resources.html" class="nav-link">Resources</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
     <main>
-        <!-- Hero Section with Header -->
+        <!-- Hero Section -->
         <section class="about-hero">
             <div class="hero-bg-overlay"></div>
-
-            <!-- Floating Header -->
-            <header class="hero-header">
-                <div class="hero-header-container">
-                    <a href="index.html" class="logo">
-                        <img src="assets/logo.svg" alt="Evergrade" class="logo-img">
-                    </a>
-                    <nav class="hero-nav">
-                        <a href="index.html" class="hero-nav-link">Home</a>
-                        <div class="has-dropdown">
-                            <a href="exports.html" class="hero-nav-link">Exports <span
-                                    class="dropdown-arrow">▼</span></a>
-                            <div class="dropdown-menu">
-                                <a href="products.html?type=export&category=grains">Grains & Cereals</a>
-                                <a href="products.html?type=export&category=textiles">Textiles</a>
-                                <a href="products.html?type=export&category=agro">Agro-Commodities</a>
-                                <a href="products.html?type=export&category=chemicals">Chemicals</a>
-                                <a href="products.html?type=export&category=engineering">Engineering</a>
-                            </div>
-                        </div>
-                        <div class="has-dropdown">
-                            <a href="imports.html" class="hero-nav-link">Imports <span
-                                    class="dropdown-arrow">▼</span></a>
-                            <div class="dropdown-menu">
-                                <a href="products.html?type=import">All Imports</a>
-                                <a href="products.html?type=import&category=electronics">Electronics</a>
-                                <a href="products.html?type=import&category=machinery">Machinery</a>
-                            </div>
-                        </div>
-                        <a href="services.html" class="hero-nav-link">Services</a>
-                        <a href="how-it-works.html" class="hero-nav-link">How It Works</a>
-                        <a href="about.html" class="hero-nav-link active">About</a>
-                        <a href="resources.html" class="hero-nav-link">Resources</a>
-                    </nav>
-                    <a href="contact.html" class="hero-contact-btn">Contact Us</a>
-                </div>
-            </header>
 
             <!-- Hero Content -->
             <div class="about-hero-content">
@@ -464,7 +489,7 @@
                     <h2>Ready to Go Global?</h2>
                     <p>Join thousands of businesses that trust Evergrade for their international trade needs.</p>
                     <div class="about-cta-buttons">
-                        <a href="contact.html" class="btn btn-primary">Get Started <span>↗</span></a>
+                        <a href="become-supplier.html" class="btn btn-primary">Get Started <span>↗</span></a>
                         <a href="services.html" class="btn btn-outline-teal">Explore Services</a>
                     </div>
                 </div>

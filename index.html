@@ -383,7 +383,7 @@
                     </div>
 
                     <!-- Seller Card -->
-                    <div class="who-card">
+                    <a href="become-supplier.html" class="who-card">
                         <div class="who-card-image">
                             <img src="assets/home/seller.png" alt="Seller">
                         </div>
@@ -396,7 +396,7 @@
                         <div class="who-card-action">
                             <img src="assets/icon-arrow-up-right.svg" alt="Arrow">
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Traders Card -->
                     <div class="who-card">
@@ -814,6 +814,107 @@
             </div>
         </div>
     </footer>
+
+    <!-- Welcome Overlay Modal -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-modal">
+            <button class="welcome-close-btn" id="welcomeCloseBtn" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="welcome-header">
+                <h2>Welcome to Evergrade</h2>
+                <p>Select your role to get started with a personalized experience</p>
+            </div>
+
+            <div class="welcome-roles-grid">
+                <!-- Buyer / Procurement Team -->
+                <div class="welcome-role-card" data-role="buyer">
+                    <div class="role-icon buyer-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3>Buyer / Procurement Team</h3>
+                    <p class="role-desc">Search products, send RFQs, negotiate quotes, and manage orders</p>
+                    <ul class="role-features">
+                        <li>Browse verified suppliers</li>
+                        <li>Send RFQs and negotiate</li>
+                        <li>Compare multiple quotes</li>
+                        <li>Track orders & shipments</li>
+                    </ul>
+                </div>
+
+                <!-- Seller / Supplier -->
+                <a href="become-supplier.html" class="welcome-role-card" data-role="seller">
+                    <div class="role-icon seller-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <h3>Seller / Supplier</h3>
+                    <p class="role-desc">Get verified, list products, respond to RFQs, and fulfill orders</p>
+                    <ul class="role-features">
+                        <li>List your products</li>
+                        <li>Receive buyer RFQs</li>
+                        <li>Send competitive quotes</li>
+                        <li>Manage order fulfillment</li>
+                    </ul>
+                </a>
+
+                <!-- Trader / Evergrade Ops -->
+                <div class="welcome-role-card" data-role="trader">
+                    <div class="role-icon trader-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3>Trader / Evergrade Ops</h3>
+                    <p class="role-desc">Verify suppliers, monitor transactions, assist buyers, and resolve disputes</p>
+                    <ul class="role-features">
+                        <li>Verify supplier applications</li>
+                        <li>Monitor all transactions</li>
+                        <li>Assist buyers & sellers</li>
+                        <li>Resolve platform disputes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="welcome-info-banner">
+                <div class="info-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path
+                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="info-text">
+                    <span class="info-title">View Mode Active</span>
+                    <span class="info-desc">You can switch roles anytime using the switcher in the header. Each role
+                        provides a unique interface optimized for your workflow.</span>
+                </div>
+            </div>
+
+            <div class="welcome-actions">
+                <button class="welcome-skip-btn" id="welcomeSkipBtn">Skip for now</button>
+                <button class="welcome-continue-btn" id="welcomeContinueBtn">Continue as User <span>→</span></button>
+            </div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>

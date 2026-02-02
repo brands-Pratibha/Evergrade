@@ -128,4 +128,65 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Welcome Overlay Logic for First-Time Visitors
+    const welcomeOverlay = document.getElementById('welcomeOverlay');
+    const welcomeCloseBtn = document.getElementById('welcomeCloseBtn');
+    const welcomeSkipBtn = document.getElementById('welcomeSkipBtn');
+    const welcomeContinueBtn = document.getElementById('welcomeContinueBtn');
+    const welcomeRoleCards = document.querySelectorAll('.welcome-role-card');
+
+    // Check if user has already seen the welcome overlay
+    const hasSeenWelcome = localStorage.getItem('evergadeWelcomeSeen');
+
+    if (welcomeOverlay && !hasSeenWelcome) {
+        // Show overlay after 40 seconds
+        setTimeout(() => {
+            welcomeOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }, 40000);
+
+        // Close overlay function
+        const closeWelcomeOverlay = () => {
+            welcomeOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            localStorage.setItem('evergadeWelcomeSeen', 'true');
+        };
+
+        // Close button click
+        if (welcomeCloseBtn) {
+            welcomeCloseBtn.addEventListener('click', closeWelcomeOverlay);
+        }
+
+        // Skip button click
+        if (welcomeSkipBtn) {
+            welcomeSkipBtn.addEventListener('click', closeWelcomeOverlay);
+        }
+
+        // Continue button click
+        if (welcomeContinueBtn) {
+            welcomeContinueBtn.addEventListener('click', closeWelcomeOverlay);
+        }
+
+        // Role card selection
+        welcomeRoleCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove active class from all cards
+                welcomeRoleCards.forEach(c => c.classList.remove('selected'));
+                // Add active class to clicked card
+                card.classList.add('selected');
+
+                // Store selected role
+                const role = card.dataset.role;
+                localStorage.setItem('evergadeUserRole', role);
+            });
+        });
+
+        // Close overlay on background click
+        welcomeOverlay.addEventListener('click', (e) => {
+            if (e.target === welcomeOverlay) {
+                closeWelcomeOverlay();
+            }
+        });
+    }
 });

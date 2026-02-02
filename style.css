@@ -6734,9 +6734,9 @@ img {
 }
 
 .btn-outline-teal {
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    color: #fff;
+    background: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
     padding: 14px 32px;
     border-radius: 999px;
     font-weight: 600;
@@ -9791,5 +9791,1469 @@ img {
 @media (max-width: 480px) {
     .offices-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   WELCOME OVERLAY MODAL STYLES
+   ========================================= */
+
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    padding: 20px;
+}
+
+.welcome-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.welcome-modal {
+    background: #ffffff;
+    border-radius: 24px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+    transform: scale(0.9) translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.welcome-overlay.active .welcome-modal {
+    transform: scale(1) translateY(0);
+}
+
+.welcome-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #9CA3AF;
+    transition: color 0.2s ease;
+    z-index: 10;
+}
+
+.welcome-close-btn:hover {
+    color: var(--color-secondary);
+}
+
+.welcome-header {
+    margin-bottom: 32px;
+}
+
+.welcome-header h2 {
+    font-family: var(--font-family-base);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin: 0 0 8px 0;
+}
+
+.welcome-header p {
+    font-size: 16px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.welcome-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.welcome-role-card {
+    background: #ffffff;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.welcome-role-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 72, 82, 0.08);
+}
+
+.welcome-role-card.selected {
+    border-color: var(--color-primary);
+    background: rgba(255, 107, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(255, 107, 0, 0.12);
+}
+
+.role-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.role-icon.buyer-icon {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #FF8C33 100%);
+    color: white;
+}
+
+.role-icon.seller-icon {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #006B7A 100%);
+    color: white;
+}
+
+.role-icon.trader-icon {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+}
+
+.welcome-role-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin: 0 0 8px 0;
+}
+
+.welcome-role-card .role-desc {
+    font-size: 13px;
+    color: #6B7280;
+    margin: 0 0 16px 0;
+    line-height: 1.5;
+}
+
+.welcome-role-card .role-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.welcome-role-card .role-features li {
+    font-size: 13px;
+    color: #374151;
+    padding: 6px 0;
+    position: relative;
+    padding-left: 16px;
+}
+
+.welcome-role-card .role-features li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+
+.welcome-info-banner {
+    background: var(--color-bg-yellow);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.welcome-info-banner .info-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 107, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-primary);
+}
+
+.welcome-info-banner .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.welcome-info-banner .info-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.welcome-info-banner .info-desc {
+    font-size: 13px;
+    color: #6B7280;
+    line-height: 1.5;
+}
+
+.welcome-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+}
+
+.welcome-skip-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 12px 24px;
+    transition: color 0.2s ease;
+}
+
+.welcome-skip-btn:hover {
+    color: #6B7280;
+}
+
+.welcome-continue-btn {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #006B7A 100%);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.welcome-continue-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 72, 82, 0.25);
+}
+
+.welcome-continue-btn span {
+    font-size: 18px;
+}
+
+/* Welcome Overlay Responsive Styles */
+@media (max-width: 900px) {
+    .welcome-modal {
+        padding: 32px;
+    }
+
+    .welcome-roles-grid {
+        gap: 16px;
+    }
+
+    .welcome-role-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-modal {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .welcome-header h2 {
+        font-size: 24px;
+    }
+
+    .welcome-roles-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .welcome-role-card {
+        padding: 20px;
+    }
+
+    .welcome-role-card h3 {
+        font-size: 15px;
+    }
+
+    .welcome-info-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .welcome-info-banner .info-icon {
+        margin: 0 auto;
+    }
+
+    .welcome-info-banner .info-text {
+        align-items: center;
+    }
+
+    .welcome-actions {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .welcome-continue-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .welcome-skip-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-modal {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .welcome-close-btn {
+        top: 16px;
+        right: 16px;
+    }
+
+    .welcome-header {
+        margin-bottom: 24px;
+    }
+
+    .welcome-header h2 {
+        font-size: 22px;
+    }
+
+    .welcome-header p {
+        font-size: 14px;
+    }
+
+    .role-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .role-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* ============================================
+   SUPPLIER REGISTRATION PAGE STYLES
+   ============================================ */
+
+/* Supplier Page Header */
+.supplier-page .site-header {
+    background-color: var(--color-bg-white);
+}
+
+/* Supplier Hero Section */
+.supplier-hero {
+    background-color: var(--color-secondary);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.supplier-hero h1 {
+    color: var(--color-text-light);
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 12px;
+}
+
+.supplier-hero p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+}
+
+/* Registration Section */
+.supplier-registration-section {
+    padding: 60px 0;
+    background-color: #F8FAFC;
+}
+
+/* Progress Stepper */
+.progress-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    gap: 0;
+}
+
+.stepper-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #E5E7EB;
+    color: #6B7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.stepper-step.active .step-circle {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.stepper-step.completed .step-circle {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.step-label {
+    font-size: 14px;
+    color: #6B7280;
+    font-weight: var(--font-weight-medium);
+}
+
+.stepper-step.active .step-label {
+    color: var(--color-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.stepper-step.completed .step-label {
+    color: var(--color-secondary);
+}
+
+.stepper-line {
+    width: 120px;
+    height: 2px;
+    background-color: #E5E7EB;
+    margin: 0 24px;
+    margin-bottom: 26px;
+}
+
+/* Registration Card */
+.registration-card {
+    background: var(--color-bg-white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+/* Form Section Header */
+.form-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.form-section-header svg {
+    color: var(--color-secondary);
+}
+
+.form-section-header h2 {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* Form Grid */
+.registration-card .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.registration-card .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.registration-card .form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.registration-card .form-group label {
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+}
+
+.registration-card .form-group input,
+.registration-card .form-group select,
+.registration-card .form-group textarea {
+    padding: 14px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: var(--font-family-base);
+    background-color: #FAFAFA;
+    transition: all 0.2s ease;
+}
+
+.registration-card .form-group input:focus,
+.registration-card .form-group select:focus,
+.registration-card .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    background-color: var(--color-bg-white);
+    box-shadow: 0 0 0 3px rgba(0, 72, 82, 0.1);
+}
+
+.registration-card .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.registration-card .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B7280' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+/* Category Checkbox Grid */
+.category-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.checkbox-text {
+    font-size: 15px;
+    color: var(--color-text-body);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border: 2px solid var(--color-border);
+    color: var(--color-text-body);
+}
+
+.btn-outline-secondary:hover {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+}
+
+/* Required Field Asterisk */
+.required-asterisk {
+    color: #DC2626;
+    font-weight: var(--font-weight-medium);
+    margin-left: 2px;
+}
+
+.form-group label .required-asterisk {
+    color: #DC2626;
+}
+
+/* Document Upload Section */
+.document-upload-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.upload-box {
+    border: 2px dashed #E5E7EB;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.upload-box:hover {
+    border-color: var(--color-secondary);
+    background-color: rgba(0, 72, 82, 0.02);
+}
+
+.upload-icon {
+    margin-bottom: 16px;
+    color: #9CA3AF;
+}
+
+.upload-box h4 {
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+
+.upload-box p {
+    font-size: 14px;
+    color: #6B7280;
+    margin-bottom: 16px;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-box .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+/* Review Section */
+.review-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.review-section {
+    background-color: #F8FAFC;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.review-section h4 {
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.review-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-label {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.review-value {
+    font-size: 15px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+}
+
+/* Documents Checklist */
+.documents-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.doc-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9CA3AF;
+}
+
+.doc-check.uploaded {
+    color: var(--color-secondary);
+}
+
+.doc-check.uploaded svg {
+    color: #10B981;
+}
+
+/* Terms Agreement */
+.terms-agreement {
+    padding: 20px;
+    background-color: #FFF7ED;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 107, 0, 0.2);
+}
+
+.terms-agreement a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* Why Sell Section */
+.why-sell-section {
+    padding: 60px 0 80px;
+    background-color: #F8FAFC;
+}
+
+.why-sell-card {
+    background: var(--color-bg-white);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.why-sell-card h2 {
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary);
+    margin-bottom: 32px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.benefit-item {
+    text-align: center;
+}
+
+.benefit-icon {
+    width: 56px;
+    height: 56px;
+    background-color: rgba(0, 72, 82, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: var(--color-secondary);
+}
+
+.benefit-item h3 {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+}
+
+.benefit-item p {
+    font-size: 14px;
+    color: var(--color-text-body);
+    line-height: 1.5;
+}
+
+/* Responsive Styles for Supplier Page */
+@media (max-width: 768px) {
+    .progress-stepper {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .stepper-line {
+        width: 60px;
+        margin: 0 8px;
+        margin-bottom: 26px;
+    }
+
+    .step-label {
+        font-size: 12px;
+    }
+
+    .registration-card {
+        padding: 24px;
+    }
+
+    .registration-card .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-checkbox-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .document-upload-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .documents-checklist {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .supplier-hero {
+        padding: 40px 0;
+    }
+
+    .supplier-hero h1 {
+        font-size: 28px;
+    }
+
+    .supplier-hero p {
+        font-size: 16px;
+    }
+
+    .progress-stepper {
+        justify-content: space-between;
+        padding: 0 16px;
+    }
+
+    .stepper-line {
+        flex: 1;
+        width: auto;
+        margin: 0 4px;
+    }
+
+    .category-checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-box {
+        padding: 20px;
+    }
+}
+
+/* ============================================
+   DOCUMENT UPLOAD LIST STYLES (NEW DESIGN)
+   ============================================ */
+
+/* Info Banner */
+.upload-info-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 8px;
+    margin-bottom: 32px;
+}
+
+.upload-info-banner svg {
+    color: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.upload-info-banner span {
+    font-size: 14px;
+    color: var(--color-text-body);
+    line-height: 1.5;
+}
+
+/* Document Upload List */
+.document-upload-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Individual Document Upload Item */
+.document-upload-item {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 20px;
+    background-color: var(--color-bg-white);
+}
+
+.doc-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.doc-title h4 {
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+.required-asterisk {
+    color: var(--color-primary);
+}
+
+.doc-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: var(--font-weight-medium);
+}
+
+.doc-badge.required {
+    background-color: rgba(0, 72, 82, 0.1);
+    color: var(--color-secondary);
+}
+
+.doc-badge.optional {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}
+
+.doc-header>svg {
+    color: var(--color-secondary);
+    margin-top: 4px;
+}
+
+/* Upload Dropzone */
+.upload-dropzone {
+    padding: 32px;
+    background-color: #FAFAFA;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.upload-dropzone:hover {
+    background-color: #F0F9FF;
+    border-top-color: var(--color-secondary);
+}
+
+.upload-dropzone.dragover {
+    background-color: #DBEAFE;
+    border-top-color: var(--color-secondary);
+}
+
+.upload-dropzone.has-file {
+    background-color: #ECFDF5;
+    border-top-color: #10B981;
+}
+
+.dropzone-text {
+    font-size: 14px;
+    color: var(--color-text-body);
+    margin-bottom: 4px;
+}
+
+.dropzone-formats {
+    font-size: 12px;
+    color: #9CA3AF;
+    margin: 0;
+}
+
+.upload-dropzone .file-input {
+    display: none;
+}
+
+/* File uploaded state */
+.upload-dropzone .file-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #10B981;
+    font-weight: var(--font-weight-medium);
+}
+
+.upload-dropzone .file-name svg {
+    color: #10B981;
+}
+
+/* Progress Stepper - Completed State with Checkmark */
+.stepper-step.completed .step-circle {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.stepper-step.completed .step-circle::after {
+    content: '✓';
+    font-size: 16px;
+}
+
+.stepper-step.completed .step-circle span {
+    display: none;
+}
+
+/* Responsive Styles for Document Upload */
+@media (max-width: 768px) {
+    .doc-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .doc-header>svg {
+        position: absolute;
+        right: 20px;
+        top: 16px;
+    }
+
+    .document-upload-item {
+        position: relative;
+    }
+
+    .upload-dropzone {
+        padding: 24px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .upload-info-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+    }
+
+    .upload-info-banner svg {
+        display: none;
+    }
+
+    .doc-title h4 {
+        font-size: 14px;
+    }
+
+    .doc-badge {
+        font-size: 11px;
+    }
+}
+
+/* ============================================
+   REVIEW & SUBMIT SECTION STYLES
+   ============================================ */
+
+/* Review Section Card */
+.review-section-card {
+    background-color: #F8FAFC;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.review-section-title {
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin: 0 0 20px 0;
+}
+
+/* Business Information Grid */
+.review-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.review-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.review-info-label {
+    font-size: 13px;
+    color: #6B7280;
+}
+
+.review-info-value {
+    font-size: 15px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-secondary);
+}
+
+/* Documents List in Review */
+.review-documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-doc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--color-text-body);
+}
+
+.review-doc-item svg {
+    color: #9CA3AF;
+    flex-shrink: 0;
+}
+
+.review-doc-item.uploaded svg {
+    color: var(--color-secondary);
+}
+
+.review-doc-item.optional {
+    opacity: 0.6;
+}
+
+.review-doc-item.optional.uploaded {
+    opacity: 1;
+}
+
+/* Terms Agreement Box - Amber/Yellow Style */
+.terms-agreement-box {
+    background-color: #FFFBEB;
+    border: 1px solid #FCD34D;
+    border-radius: 8px;
+    padding: 20px 24px;
+}
+
+.terms-agreement-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #78716C;
+    margin: 0 0 16px 0;
+}
+
+.terms-agreement-box a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+.terms-agreement-box a:hover {
+    color: var(--color-primary);
+}
+
+/* Terms Checkbox */
+.terms-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.terms-checkbox-text {
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-dark);
+}
+
+/* Responsive Styles for Review Section */
+@media (max-width: 768px) {
+    .review-info-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .review-section-card {
+        padding: 20px 16px;
+    }
+
+    .terms-agreement-box {
+        padding: 16px;
+    }
+
+    .terms-agreement-box p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-section-title {
+        font-size: 15px;
+    }
+
+    .review-info-value {
+        font-size: 14px;
+    }
+}
+
+/* ============================================
+   SUCCESS MODAL STYLES
+   ============================================ */
+
+.success-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 40px 20px;
+}
+
+.success-modal-overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.success-modal {
+    background-color: var(--color-bg-white);
+    border-radius: 16px;
+    padding: 48px 40px;
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Shield Icon */
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #FEF3C7;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.success-icon svg {
+    color: #D97706;
+}
+
+/* Success Title */
+.success-title {
+    font-size: 28px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin: 0 0 12px 0;
+}
+
+.success-subtitle {
+    font-size: 16px;
+    color: var(--color-text-body);
+    margin: 0 0 8px 0;
+}
+
+.success-app-id {
+    font-size: 15px;
+    color: var(--color-text-body);
+    margin: 0 0 32px 0;
+}
+
+.success-app-id strong {
+    color: var(--color-secondary);
+    font-weight: var(--font-weight-semibold);
+}
+
+/* Next Steps Card */
+.next-steps-card {
+    background-color: #F8FAFC;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.next-steps-title {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.next-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.next-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: var(--font-weight-semibold);
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    font-size: 15px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-secondary);
+    margin: 0 0 4px 0;
+}
+
+.step-content p {
+    font-size: 14px;
+    color: var(--color-text-body);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Success Info Box */
+.success-info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.success-info-box svg {
+    color: var(--color-secondary);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.success-info-box span {
+    font-size: 13px;
+    color: var(--color-text-body);
+    line-height: 1.5;
+}
+
+/* Back to Home Button */
+.success-home-btn {
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 16px;
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.success-home-btn:hover {
+    background-color: #003840;
+    border-color: #003840;
+}
+
+/* Responsive Styles for Success Modal */
+@media (max-width: 640px) {
+    .success-modal {
+        padding: 32px 24px;
+        margin: 20px;
+    }
+
+    .success-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .success-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .success-title {
+        font-size: 22px;
+    }
+
+    .next-steps-card {
+        padding: 20px 16px;
+    }
+
+    .step-number {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
+    }
+
+    .step-content h4 {
+        font-size: 14px;
+    }
+
+    .step-content p {
+        font-size: 13px;
     }
 }
