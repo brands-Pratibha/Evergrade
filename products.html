@@ -2118,7 +2118,39 @@
         </div>
     </footer>
 
+    <script src="product-data.js"></script>
     <script src="products.js"></script>
+
+    <script>
+        // Assign product IDs to View Details links
+        document.addEventListener('DOMContentLoaded', function () {
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach((card, index) => {
+                // Get the product name from the card
+                const productNameEl = card.querySelector('.product-header h3');
+                if (!productNameEl) return;
+
+                const productName = productNameEl.textContent.trim();
+
+                // Find matching product in data by name
+                const product = PRODUCTS_DATA.find(p =>
+                    p.name.toLowerCase() === productName.toLowerCase()
+                );
+
+                if (product) {
+                    // Set data-product-id on the card
+                    card.setAttribute('data-product-id', product.id);
+
+                    // Update the View Details link
+                    const viewDetailsLink = card.querySelector('a.btn');
+                    if (viewDetailsLink) {
+                        viewDetailsLink.href = `product-detail.html?id=${product.id}`;
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
