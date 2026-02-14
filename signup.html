@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Evergrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .auth-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-stats);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-card {
+            background: var(--color-bg-white);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-card);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .auth-header h1 {
+            font-size: 32px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-dark);
+            margin-bottom: 8px;
+        }
+
+        .auth-header p {
+            color: var(--color-text-body);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .role-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .role-option {
+            position: relative;
+        }
+
+        .role-option input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .role-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .role-option input[type="radio"]:checked+.role-card {
+            border-color: var(--color-primary);
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+
+        .role-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+            color: var(--color-secondary);
+        }
+
+        .role-option input[type="radio"]:checked+.role-card .role-icon {
+            color: var(--color-primary);
+        }
+
+        .role-title {
+            font-weight: var(--font-weight-semibold);
+            font-size: 14px;
+            color: var(--color-text-dark);
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--color-text-dark);
+            background-color: var(--color-bg-light);
+            transition: border-color 0.2s ease;
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .btn-auth {
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--color-text-body);
+        }
+
+        .auth-footer a {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 8px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Removed -->
+
+    <main>
+        <section class="auth-section">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="index.html">
+                    <img src="assets/logo.svg" alt="Evergrade" style="height: 40px;">
+                </a>
+            </div>
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Create Account</h1>
+                    <p>Join India's most trusted B2B platform</p>
+                </div>
+
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="name" style="display:block; margin-bottom: 8px; font-weight: 500;">Full Name</label>
+                        <input type="text" id="name" class="auth-input" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom: 8px; font-weight: 500;">I am a</label>
+                        <div class="role-selection">
+                            <label class="role-option">
+                                <input type="radio" name="role" value="buyer" checked>
+                                <div class="role-card">
+                                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                    </svg>
+                                    <span class="role-title">Buyer</span>
+                                </div>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="seller">
+                                <div class="role-card">
+                                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                    <span class="role-title">Seller / Manufacturer</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" style="display:block; margin-bottom: 8px; font-weight: 500;">Email
+                            Address</label>
+                        <input type="email" id="email" class="auth-input" placeholder="name@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password"
+                            style="display:block; margin-bottom: 8px; font-weight: 500;">Password</label>
+                        <input type="password" id="password" class="auth-input" placeholder="Create a password" required
+                            minlength="6">
+                    </div>
+
+                    <div class="error-message" id="signup-error"></div>
+
+                    <button type="submit" class="btn btn-primary btn-auth" id="signup-btn">
+                        Create Account
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    Already have an account? <a href="login.html">Log In</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Removed -->
+
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

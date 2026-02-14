@@ -21,7 +21,12 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li class="has-dropdown">
-                        <a href="exports.html" class="nav-link active">Exports <span class="dropdown-arrow">▼</span></a>
+                        <a href="exports.html" class="nav-link active">Exports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
                         <div class="dropdown-menu">
                             <a href="products.html?type=export&category=grains">Grains & Cereals</a>
                             <a href="products.html?type=export&category=pulses">Pulses & Lentils</a>
@@ -31,7 +36,12 @@
                         </div>
                     </li>
                     <li class="has-dropdown">
-                        <a href="imports.html" class="nav-link">Imports <span class="dropdown-arrow">▼</span></a>
+                        <a href="imports.html" class="nav-link">Imports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
                         <div class="dropdown-menu">
                             <a href="products.html?type=import">All Imports</a>
                             <a href="products.html?type=import&category=toys">Toys & Games</a>
@@ -42,12 +52,20 @@
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            <a href="contact.html" class="hero-contact-btn">Contact Us</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="header-actions">
+                <div id="auth-container" style="display: flex; gap: 10px; align-items: center;">
+                    <button class="btn btn-primary trigger-auth-login"
+                        onclick="window.openAuthModal && window.openAuthModal('login')">Log In</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -2151,6 +2169,9 @@
             });
         });
     </script>
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/auth-modal.js"></script>
+    <script src="js/nav-auth.js"></script>
 </body>
 
 </html>

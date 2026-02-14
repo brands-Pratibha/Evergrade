@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Evergrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .profile-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-stats);
+            min-height: 60vh;
+        }
+
+        .profile-card {
+            background: var(--color-bg-white);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-card);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 24px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .profile-info h1 {
+            font-size: 24px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-dark);
+            margin-bottom: 4px;
+        }
+
+        .profile-info p {
+            color: var(--color-text-body);
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .detail-item label {
+            display: block;
+            font-size: 14px;
+            color: var(--color-text-body);
+            margin-bottom: 4px;
+        }
+
+        .detail-item .value {
+            font-size: 18px;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-dark);
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
+        }
+
+        .loader {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: var(--color-text-body);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.svg" alt="Evergrade" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="logout-btn" class="btn btn-outline"
+                    style="color: var(--color-text-dark); border-color: var(--color-border);">Log Out</button>
+            </div>
+        </div>
+    </header>
+
+    <main style="background-color: #f3f4f6; min-height: calc(100vh - 72px); padding: 40px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 280px 1fr; gap: 30px; align-items: start;">
+
+                <!-- Sidebar -->
+                <aside
+                    style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <div id="sidebar-avatar"
+                            style="width: 80px; height: 80px; background: var(--color-primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: bold; margin: 0 auto 16px;">
+                            U</div>
+                        <h3 id="sidebar-name" style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">User Name
+                        </h3>
+                        <p id="sidebar-email" style="font-size: 14px; color: #6b7280;">user@example.com</p>
+                    </div>
+
+                    <nav style="display: flex; flex-direction: column; gap: 8px;">
+                        <a href="#" class="dashboard-link active"
+                            style="padding: 12px; border-radius: 8px; background: #fff7ed; color: var(--color-primary); font-weight: 500; display: flex; align-items: center; gap: 10px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            My Profile
+                        </a>
+                        <a href="#" class="dashboard-link"
+                            style="padding: 12px; border-radius: 8px; color: #4b5563; font-weight: 500; display: flex; align-items: center; gap: 10px; transition: 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Saved Lists
+                        </a>
+                        <a href="#" class="dashboard-link"
+                            style="padding: 12px; border-radius: 8px; color: #4b5563; font-weight: 500; display: flex; align-items: center; gap: 10px; transition: 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            Messages
+                        </a>
+                        <a href="#" class="dashboard-link"
+                            style="padding: 12px; border-radius: 8px; color: #4b5563; font-weight: 500; display: flex; align-items: center; gap: 10px; transition: 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            Support Tickets
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- specific Dashboard Content -->
+                <div class="dashboard-content">
+                    <!-- Profile Strength Card -->
+                    <div
+                        style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); margin-bottom: 24px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <h2 style="font-size: 18px; font-weight: 600;">Profile Completion</h2>
+                            <span id="strength-percent"
+                                style="font-weight: 700; color: var(--color-primary);">25%</span>
+                        </div>
+                        <div
+                            style="width: 100%; height: 8px; background: #f3f4f6; border-radius: 4px; overflow: hidden;">
+                            <div id="strength-bar"
+                                style="width: 25%; height: 100%; background: var(--color-primary); border-radius: 4px;">
+                            </div>
+                        </div>
+                        <p style="font-size: 14px; color: #6b7280; margin-top: 12px;">Complete your profile to get
+                            verified status.</p>
+                    </div>
+
+                    <!-- Personal Details -->
+                    <div
+                        style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                            <h2 style="font-size: 20px; font-weight: 700;">Personal Details</h2>
+                            <button class="btn btn-outline" style="padding: 8px 16px; font-size: 14px;">Edit
+                                Profile</button>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                            <div class="detail-item">
+                                <label style="display: block; font-size: 14px; color: #6b7280; margin-bottom: 4px;">Full
+                                    Name</label>
+                                <div class="value" id="disp-name"
+                                    style="font-size: 16px; font-weight: 500; color: #111827;">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <label
+                                    style="display: block; font-size: 14px; color: #6b7280; margin-bottom: 4px;">Email
+                                    Address</label>
+                                <div class="value" id="disp-email"
+                                    style="font-size: 16px; font-weight: 500; color: #111827;">-</div>
+                            </div>
+                            <div class="detail-item">
+                                <label
+                                    style="display: block; font-size: 14px; color: #6b7280; margin-bottom: 4px;">Designation</label>
+                                <div class="value" id="disp-designation"
+                                    style="font-size: 16px; font-weight: 500; color: #111827;">Procurement Manager</div>
+                            </div>
+                            <div class="detail-item">
+                                <label
+                                    style="display: block; font-size: 14px; color: #6b7280; margin-bottom: 4px;">Location</label>
+                                <div class="value" id="disp-location"
+                                    style="font-size: 16px; font-weight: 500; color: #111827;">Mumbai, India</div>
+                            </div>
+                            <div class="detail-item">
+                                <label
+                                    style="display: block; font-size: 14px; color: #6b7280; margin-bottom: 4px;">Mobile
+                                    Number</label>
+                                <div class="value" id="disp-phone"
+                                    style="font-size: 16px; font-weight: 500; color: #111827;">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/firebase-mock.js"></script>
+    <script>
+        (function () {
+            const FM = window.FirebaseMock;
+            if (!FM) { console.error('FirebaseMock not loaded!'); return; }
+            const { auth, db, onAuthStateChanged, signOut, doc, getDoc } = FM;
+
+            const logoutBtn = document.getElementById('logout-btn');
+
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    // Fetch User Data
+                    const docRef = doc(db, "users", user.uid);
+                    const docSnap = await getDoc(docRef);
+                    const data = docSnap.exists() ? docSnap.data() : {};
+
+                    // Update UI
+                    const name = user.displayName || data.name || 'User';
+                    const initial = name.charAt(0).toUpperCase();
+
+                    document.getElementById('sidebar-avatar').textContent = initial;
+                    document.getElementById('sidebar-name').textContent = name;
+                    document.getElementById('sidebar-email').textContent = user.email;
+
+                    document.getElementById('disp-name').textContent = name;
+                    document.getElementById('disp-email').textContent = user.email;
+                    document.getElementById('disp-phone').textContent = data.phone || '-';
+
+                    // Mock Strength Logic for now
+                    let strength = 25;
+                    if (data.phone) strength += 25;
+                    if (data.designation) strength += 25;
+                    if (data.location) strength += 25;
+
+                    document.getElementById('strength-percent').textContent = strength + '%';
+                    document.getElementById('strength-bar').style.width = strength + '%';
+
+                } else {
+                    window.location.href = 'index.html';
+                }
+            });
+
+            logoutBtn.addEventListener('click', () => {
+                signOut(auth).then(() => window.location.href = 'index.html');
+            });
+        })();
+    </script>
+</body>
+
+</html>

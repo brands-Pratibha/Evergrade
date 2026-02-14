@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard - Evergrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="seller-dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Mobile sidebar overlay -->
+    <div class="db-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="db-shell">
+        <!-- ========== SIDEBAR ========== -->
+        <aside class="db-sidebar" id="db-sidebar">
+            <a href="index.html" class="db-sidebar-logo"
+                style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px">
+                <img src="assets/logo.svg" alt="Evergrade">
+                <span>Seller Hub</span>
+            </a>
+
+            <nav class="db-sidebar-nav">
+                <div class="db-nav-label">Main</div>
+                <button class="db-nav-item active" data-section="overview">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Overview
+                </button>
+
+                <div class="db-nav-label">Inventory</div>
+                <button class="db-nav-item" data-section="inventory">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                        </path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    My Products
+                </button>
+                <button class="db-nav-item" data-section="add-product">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="16"></line>
+                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                    </svg>
+                    Add Product
+                </button>
+                <button class="db-nav-item" data-section="bulk-upload">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    Bulk Upload
+                </button>
+
+                <div class="db-nav-label">Business</div>
+                <button class="db-nav-item" data-section="inquiries">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Inquiries
+                    <span class="nav-badge" id="inquiry-badge">3</span>
+                </button>
+                <button class="db-nav-item" data-section="profile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Profile & Business
+                </button>
+                <button class="db-nav-item" data-section="support">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    Support
+                </button>
+            </nav>
+
+            <div class="db-sidebar-footer">
+                <button class="db-nav-item" id="db-logout-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Log Out
+                </button>
+                <a href="index.html" class="db-nav-item" style="margin-top:4px">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Back to Website
+                </a>
+            </div>
+        </aside>
+
+        <!-- ========== MAIN ========== -->
+        <div class="db-main">
+            <!-- Top Bar -->
+            <header class="db-topbar">
+                <div class="db-topbar-left">
+                    <button class="db-hamburger" id="db-hamburger">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                    <h1 id="db-page-title">Overview</h1>
+                </div>
+                <div class="db-topbar-right">
+                    <span class="db-topbar-name" id="db-user-name">Seller</span>
+                    <div class="db-topbar-avatar" id="db-user-avatar">S</div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="db-content">
+
+                <!-- ===== OVERVIEW SECTION ===== -->
+                <div class="db-section active" id="sec-overview">
+                    <div class="db-stats-grid" id="overview-stats"></div>
+
+                    <div class="db-quick-actions">
+                        <button class="db-quick-action" data-goto="add-product">
+                            <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="16"></line>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg></div>
+                            <div class="qa-text">
+                                <h4>Add Product</h4>
+                                <p>List a new product</p>
+                            </div>
+                        </button>
+                        <button class="db-quick-action" data-goto="bulk-upload">
+                            <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg></div>
+                            <div class="qa-text">
+                                <h4>Bulk Upload</h4>
+                                <p>Import from CSV</p>
+                            </div>
+                        </button>
+                        <button class="db-quick-action" data-goto="inquiries">
+                            <div class="qa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg></div>
+                            <div class="qa-text">
+                                <h4>View Inquiries</h4>
+                                <p>Check new leads</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Recent Activity</h2>
+                        </div>
+                        <div class="db-card-body" id="overview-activity">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Profile Completion</h2>
+                            <span id="profile-pct" class="db-badge teal">25%</span>
+                        </div>
+                        <div class="db-card-body">
+                            <p style="font-size:14px;color:var(--color-text-body);margin:0 0 6px;">Complete your profile
+                                to gain verified status and attract more buyers.</p>
+                            <div class="db-progress-bar">
+                                <div class="db-progress-fill" id="profile-progress" style="width:25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== INVENTORY SECTION ===== -->
+                <div class="db-section" id="sec-inventory">
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>My Products</h2>
+                            <div class="db-toolbar">
+                                <div class="db-search">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                    <input type="text" placeholder="Search products..." id="inv-search">
+                                </div>
+                                <div class="db-filter">
+                                    <select id="inv-filter-cat">
+                                        <option value="">All Categories</option>
+                                        <option value="grains">Grains</option>
+                                        <option value="pulses">Pulses</option>
+                                        <option value="textiles">Textiles</option>
+                                        <option value="building">Building Materials</option>
+                                        <option value="toys">Toys</option>
+                                        <option value="grocery">Grocery</option>
+                                        <option value="steel">Steel</option>
+                                        <option value="nonferrous">Non Ferrous</option>
+                                        <option value="polymers">Polymers</option>
+                                        <option value="chemicals">Chemicals</option>
+                                    </select>
+                                </div>
+                                <button class="db-btn primary sm" data-goto="add-product">+ Add Product</button>
+                            </div>
+                        </div>
+                        <div class="db-card-body" style="padding:0">
+                            <div class="db-table-wrap">
+                                <table class="db-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Category</th>
+                                            <th>MOQ</th>
+                                            <th>Status</th>
+                                            <th>Date Added</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inv-table-body">
+                                        <!-- Filled by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="db-empty-state" id="inv-empty" style="display:none;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path
+                                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                    </path>
+                                </svg>
+                                <h3>No products yet</h3>
+                                <p>Start by adding your first product to the catalog.</p>
+                                <button class="db-btn primary" data-goto="add-product">+ Add Your First Product</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ADD PRODUCT SECTION ===== -->
+                <div class="db-section" id="sec-add-product">
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2 id="add-product-title">Add New Product</h2>
+                        </div>
+                        <div class="db-card-body">
+                            <form id="product-form">
+                                <input type="hidden" id="edit-product-id" value="">
+                                <div class="db-form-row">
+                                    <div class="db-form-group">
+                                        <label>Product Name <span>*</span></label>
+                                        <input type="text" class="db-input" id="pf-name" required>
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>Category <span>*</span></label>
+                                        <select class="db-input" id="pf-category" required>
+                                            <option value="">Select Category</option>
+                                            <option value="grains">Grains</option>
+                                            <option value="pulses">Pulses</option>
+                                            <option value="textiles">Textiles</option>
+                                            <option value="building">Building Materials</option>
+                                            <option value="toys">Toys</option>
+                                            <option value="grocery">Grocery</option>
+                                            <option value="steel">Steel</option>
+                                            <option value="nonferrous">Non Ferrous</option>
+                                            <option value="polymers">Polymers</option>
+                                            <option value="chemicals">Chemicals</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="db-form-row-3">
+                                    <div class="db-form-group">
+                                        <label>Minimum Order Qty <span>*</span></label>
+                                        <input type="text" class="db-input" id="pf-moq" placeholder="e.g. 10 MT"
+                                            required>
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>Lead Time</label>
+                                        <input type="text" class="db-input" id="pf-leadtime"
+                                            placeholder="e.g. 7-10 days">
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>Production Capacity</label>
+                                        <input type="text" class="db-input" id="pf-capacity"
+                                            placeholder="e.g. 500 MT/month">
+                                    </div>
+                                </div>
+
+                                <div class="db-form-group">
+                                    <label>Description <span>*</span></label>
+                                    <textarea class="db-input" id="pf-desc" rows="4" required></textarea>
+                                </div>
+
+                                <div class="db-form-group">
+                                    <label>Certifications</label>
+                                    <input type="text" class="db-input" id="pf-certs"
+                                        placeholder="e.g. FSSAI, ISO, Organic (comma-separated)">
+                                </div>
+
+                                <div class="db-form-group">
+                                    <label>Specifications</label>
+                                    <div id="specs-container">
+                                        <div class="db-spec-row">
+                                            <input type="text" class="db-input spec-key"
+                                                placeholder="Spec name (e.g. Moisture)">
+                                            <input type="text" class="db-input spec-val"
+                                                placeholder="Value (e.g. 12% max)">
+                                            <button type="button" class="remove-spec" title="Remove">×</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="db-btn outline sm" id="add-spec-btn"
+                                        style="margin-top:8px">+ Add Specification</button>
+                                </div>
+
+                                <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:24px">
+                                    <button type="button" class="db-btn outline" id="cancel-product-btn">Cancel</button>
+                                    <button type="submit" class="db-btn primary" id="save-product-btn">Save
+                                        Product</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BULK UPLOAD SECTION ===== -->
+                <div class="db-section" id="sec-bulk-upload">
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Bulk Upload Products</h2>
+                            <button class="db-btn outline sm" id="download-template-btn">⬇ Download CSV
+                                Template</button>
+                        </div>
+                        <div class="db-card-body">
+                            <div class="db-upload-zone" id="csv-drop-zone">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                <h3>Drag & drop your CSV file here</h3>
+                                <p>or <span class="browse-link">browse files</span> from your computer</p>
+                                <input type="file" id="csv-file-input" accept=".csv" style="display:none">
+                            </div>
+                            <div id="csv-preview" style="display:none;margin-top:24px">
+                                <div class="db-preview-info">
+                                    <span id="csv-summary" style="font-size:14px;font-weight:600"></span>
+                                    <div style="display:flex;gap:12px">
+                                        <button class="db-btn outline sm" id="csv-cancel-btn">Cancel</button>
+                                        <button class="db-btn primary sm" id="csv-import-btn">Import All Valid</button>
+                                    </div>
+                                </div>
+                                <div class="db-table-wrap">
+                                    <table class="db-table">
+                                        <thead id="csv-preview-head"></thead>
+                                        <tbody id="csv-preview-body"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== INQUIRIES SECTION ===== -->
+                <div class="db-section" id="sec-inquiries">
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Inquiries & Leads</h2>
+                            <div class="db-toolbar">
+                                <div class="db-filter">
+                                    <select id="inq-filter">
+                                        <option value="">All Status</option>
+                                        <option value="new">New</option>
+                                        <option value="responded">Responded</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="db-card-body" style="padding:0">
+                            <div class="db-table-wrap">
+                                <table class="db-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Buyer</th>
+                                            <th>Message</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="inq-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== PROFILE SECTION ===== -->
+                <div class="db-section" id="sec-profile">
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Personal Information</h2>
+                        </div>
+                        <div class="db-card-body">
+                            <form id="profile-form">
+                                <div class="db-form-row">
+                                    <div class="db-form-group">
+                                        <label>Full Name</label>
+                                        <input type="text" class="db-input" id="prof-name">
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="db-input" id="prof-email" readonly
+                                            style="background:#f9fafb">
+                                    </div>
+                                </div>
+                                <div class="db-form-row">
+                                    <div class="db-form-group">
+                                        <label>Phone Number</label>
+                                        <input type="text" class="db-input" id="prof-phone"
+                                            placeholder="Enter phone number">
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>Designation</label>
+                                        <input type="text" class="db-input" id="prof-designation"
+                                            placeholder="e.g. Managing Director">
+                                    </div>
+                                </div>
+                                <div style="text-align:right;margin-top:8px">
+                                    <button type="submit" class="db-btn primary">Save Personal Info</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Business Details</h2>
+                        </div>
+                        <div class="db-card-body">
+                            <form id="business-form">
+                                <div class="db-form-row">
+                                    <div class="db-form-group">
+                                        <label>Company Name</label>
+                                        <input type="text" class="db-input" id="biz-company"
+                                            placeholder="Enter company name">
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>GST Number</label>
+                                        <input type="text" class="db-input" id="biz-gst"
+                                            placeholder="e.g. 22AAAAA0000A1Z5">
+                                    </div>
+                                </div>
+                                <div class="db-form-group">
+                                    <label>Business Address</label>
+                                    <textarea class="db-input" id="biz-address" rows="3"
+                                        placeholder="Enter full business address"></textarea>
+                                </div>
+                                <div class="db-form-group">
+                                    <label>Business Description</label>
+                                    <textarea class="db-input" id="biz-desc" rows="3"
+                                        placeholder="Describe your business..."></textarea>
+                                </div>
+                                <div style="text-align:right;margin-top:8px">
+                                    <button type="submit" class="db-btn primary">Save Business Details</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Certifications & Documents</h2>
+                        </div>
+                        <div class="db-card-body">
+                            <div class="db-upload-zone" id="cert-upload-zone" style="padding:32px 24px">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                <h3>Upload certifications</h3>
+                                <p>PDF, JPG, or PNG files (max 5 MB each)</p>
+                            </div>
+                            <div id="cert-list" style="margin-top:16px"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== SUPPORT SECTION ===== -->
+                <div class="db-section" id="sec-support">
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>Raise a Support Ticket</h2>
+                        </div>
+                        <div class="db-card-body">
+                            <form id="support-form">
+                                <div class="db-form-row">
+                                    <div class="db-form-group">
+                                        <label>Subject <span>*</span></label>
+                                        <input type="text" class="db-input" id="sup-subject" required
+                                            placeholder="Brief subject">
+                                    </div>
+                                    <div class="db-form-group">
+                                        <label>Category</label>
+                                        <select class="db-input" id="sup-category">
+                                            <option value="account">Account Issue</option>
+                                            <option value="payment">Payment</option>
+                                            <option value="products">Product Listing</option>
+                                            <option value="technical">Technical Issue</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="db-form-group">
+                                    <label>Description <span>*</span></label>
+                                    <textarea class="db-input" id="sup-desc" rows="4" required
+                                        placeholder="Describe your issue in detail..."></textarea>
+                                </div>
+                                <div style="text-align:right">
+                                    <button type="submit" class="db-btn primary">Submit Ticket</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="db-card">
+                        <div class="db-card-header">
+                            <h2>My Tickets</h2>
+                        </div>
+                        <div class="db-card-body" style="padding:0">
+                            <div class="db-table-wrap">
+                                <table class="db-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Ticket ID</th>
+                                            <th>Subject</th>
+                                            <th>Category</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sup-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /db-content -->
+        </div><!-- /db-main -->
+    </div><!-- /db-shell -->
+
+    <!-- Respond to Inquiry Modal -->
+    <div class="db-modal-overlay" id="respond-modal">
+        <div class="db-modal">
+            <div class="db-modal-header">
+                <h3>Respond to Inquiry</h3>
+                <button class="db-modal-close" id="respond-modal-close">×</button>
+            </div>
+            <div class="db-modal-body">
+                <p id="respond-inquiry-info" style="font-size:14px;color:var(--color-text-body);margin:0 0 16px"></p>
+                <div class="db-form-group">
+                    <label>Your Response</label>
+                    <textarea class="db-input" id="respond-text" rows="5"
+                        placeholder="Type your response to the buyer..."></textarea>
+                </div>
+            </div>
+            <div class="db-modal-footer">
+                <button class="db-btn outline" id="respond-cancel-btn">Cancel</button>
+                <button class="db-btn primary" id="respond-send-btn">Send Response</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirm Modal -->
+    <div class="db-modal-overlay" id="delete-modal">
+        <div class="db-modal" style="max-width:420px">
+            <div class="db-modal-header">
+                <h3>Delete Product</h3>
+                <button class="db-modal-close" id="delete-modal-close">×</button>
+            </div>
+            <div class="db-modal-body">
+                <p style="font-size:14px;color:var(--color-text-body);margin:0">Are you sure you want to delete <strong
+                        id="delete-product-name"></strong>? This action cannot be undone.</p>
+            </div>
+            <div class="db-modal-footer">
+                <button class="db-btn outline" id="delete-cancel-btn">Cancel</button>
+                <button class="db-btn danger" id="delete-confirm-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="db-toast" id="db-toast"></div>
+
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

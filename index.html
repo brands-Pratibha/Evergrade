@@ -54,8 +54,12 @@
                         <a href="how-it-works.html" class="hero-nav-link">How It Works</a>
                         <a href="about.html" class="hero-nav-link">About</a>
                         <a href="resources.html" class="hero-nav-link">Resources</a>
+                        <a href="contact.html" class="hero-nav-link">Contact</a>
                     </nav>
-                    <a href="contact.html" class="hero-contact-btn">Contact Us</a>
+                    <div id="auth-container" style="display: flex; gap: 10px; margin-left: 20px;">
+                        <button class="btn btn-login-pill trigger-auth-login"
+                            onclick="window.openAuthModal && window.openAuthModal('login')">Log in</button>
+                    </div>
                     <!-- Mobile Menu Toggle -->
                     <button class="mobile-menu-toggle" aria-label="Open mobile menu">
                         <span></span>
@@ -85,7 +89,8 @@
                         <a href="blog.html">Blog</a>
                     </div>
                     <div class="mobile-nav-cta">
-                        <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                        <button class="btn btn-primary trigger-auth-login"
+                            onclick="window.openAuthModal && window.openAuthModal('login')">Log In</button>
                     </div>
                 </div>
             </nav>
@@ -944,7 +949,10 @@
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <!-- Auth Modal -->
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/auth-modal.js"></script>
+    <script src="js/nav-auth.js"></script>
 </body>
 
 </html>

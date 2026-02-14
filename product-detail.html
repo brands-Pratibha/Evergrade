@@ -21,7 +21,12 @@
                 <ul class="nav-list">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li class="has-dropdown">
-                        <a href="exports.html" class="nav-link active">Exports <span class="dropdown-arrow">▼</span></a>
+                        <a href="exports.html" class="nav-link active">Exports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
                         <div class="dropdown-menu">
                             <a href="products.html?type=export&category=grains">Grains & Cereals</a>
                             <a href="products.html?type=export&category=textiles">Textiles</a>
@@ -31,7 +36,12 @@
                         </div>
                     </li>
                     <li class="has-dropdown">
-                        <a href="imports.html" class="nav-link">Imports <span class="dropdown-arrow">▼</span></a>
+                        <a href="imports.html" class="nav-link">Imports <span class="dropdown-arrow">
+                                <svg width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                                    <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span></a>
                         <div class="dropdown-menu">
                             <a href="products.html?type=import">All Imports</a>
                             <a href="products.html?type=import&category=electronics">Electronics</a>
@@ -42,12 +52,20 @@
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
-            <a href="contact.html" class="hero-contact-btn">Contact Us</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="header-actions">
+                <div id="auth-container" style="display: flex; gap: 10px; align-items: center;">
+                    <button class="btn btn-primary trigger-auth-login"
+                        onclick="window.openAuthModal && window.openAuthModal('login')">Log In</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -323,107 +341,131 @@
     <script src="product-data.js"></script>
     <script src="main.js"></script>
     <script>
-        // Product Detail Page - Dynamic Data Population
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get product ID from URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('id');
+        (function () {
+            document.addEventListener('DOMContentLoaded', async function () {
+                // Get product ID from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('id');
 
-            if (!productId) {
-                showProductNotFound();
-                return;
+                if (!productId) {
+                    showProductNotFound();
+                    return;
+                }
+
+                let product = null;
+
+                // 1. Try finding in Static Data (if numeric ID)
+                if (!isNaN(productId) && typeof PRODUCTS_DATA !== 'undefined') {
+                    product = PRODUCTS_DATA.find(p => p.id == productId);
+                }
+
+                // 2. If not found, try fetching from Firestore via FirebaseMock
+                if (!product) {
+                    try {
+                        const FM = window.FirebaseMock;
+                        if (FM) {
+                            const { db, doc, getDoc } = FM;
+                            const docRef = doc(db, "products", productId);
+                            const docSnap = await getDoc(docRef);
+                            if (docSnap.exists()) {
+                                product = { id: docSnap.id, ...docSnap.data() };
+                            }
+                        }
+                    } catch (error) {
+                        console.error("Error fetching product details:", error);
+                    }
+                }
+
+                if (product) {
+                    populateProductDetails(product);
+                } else {
+                    showProductNotFound();
+                }
+            });
+
+            function populateProductDetails(product) {
+                // Update page title
+                document.title = `${product.name} - Evergrade`;
+
+                // Update product title
+                const titleEl = document.getElementById('product-title');
+                if (titleEl) titleEl.textContent = product.name;
+
+                // Update rating
+                const ratingEl = document.getElementById('product-rating');
+                if (ratingEl) ratingEl.textContent = product.rating || 'New';
+
+                // Update supplier info
+                const supplierNameEl = document.getElementById('supplier-name');
+                if (supplierNameEl) supplierNameEl.textContent = product.supplier ? product.supplier.name : 'Unknown Seller';
+
+                const supplierLocationEl = document.getElementById('supplier-location');
+                if (supplierLocationEl) supplierLocationEl.textContent = product.supplier ? product.supplier.location : '';
+
+                const supplierExpEl = document.getElementById('supplier-experience');
+                if (supplierExpEl) supplierExpEl.textContent = product.supplier ? product.supplier.experience : '';
+
+                // Update certifications
+                const certificationsEl = document.getElementById('certifications');
+                if (certificationsEl) {
+                    if (product.certifications && Array.isArray(product.certifications) && product.certifications.length > 0) {
+                        certificationsEl.innerHTML = product.certifications
+                            .map(cert => `<span class="cert-badge">${cert}</span>`)
+                            .join('');
+                    } else {
+                        certificationsEl.innerHTML = '';
+                    }
+                }
+
+                // Update description
+                const descriptionEl = document.getElementById('product-description');
+                if (descriptionEl) descriptionEl.textContent = product.description;
+
+                // Update specifications
+                const specificationsEl = document.getElementById('specifications');
+                if (specificationsEl && product.specifications) {
+                    let specsHtml = '';
+                    for (const [label, value] of Object.entries(product.specifications)) {
+                        specsHtml += `
+                            <div class="spec-item">
+                                <span class="spec-item-label">${label}</span>
+                                <span class="spec-item-value">${value}</span>
+                            </div>
+                        `;
+                    }
+                    specificationsEl.innerHTML = specsHtml;
+                }
+
+                // Update pricing/terms
+                const moqEl = document.getElementById('moq');
+                if (moqEl) moqEl.textContent = product.moq || 'N/A';
+
+                const leadTimeEl = document.getElementById('lead-time');
+                if (leadTimeEl) leadTimeEl.textContent = product.leadTime || 'Contact Supplier';
+
+                const capacityEl = document.getElementById('capacity');
+                if (capacityEl) capacityEl.textContent = product.capacity || 'N/A';
+
+                // Update meta description
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc && product.description) {
+                    metaDesc.content = product.description.substring(0, 160);
+                }
             }
 
-            // Get product data
-            const product = getProductById(productId);
-
-            if (!product) {
-                showProductNotFound();
-                return;
-            }
-
-            // Populate page with product data
-            populateProductDetails(product);
-        });
-
-        function populateProductDetails(product) {
-            // Update page title
-            document.title = `${product.name} - Evergrade`;
-
-            // Update product title
-            const titleEl = document.getElementById('product-title');
-            if (titleEl) titleEl.textContent = product.name;
-
-            // Update rating
-            const ratingEl = document.getElementById('product-rating');
-            if (ratingEl) ratingEl.textContent = product.rating;
-
-            // Update supplier info
-            const supplierNameEl = document.getElementById('supplier-name');
-            if (supplierNameEl) supplierNameEl.textContent = product.supplier.name;
-
-            const supplierLocationEl = document.getElementById('supplier-location');
-            if (supplierLocationEl) supplierLocationEl.textContent = product.supplier.location;
-
-            const supplierExpEl = document.getElementById('supplier-experience');
-            if (supplierExpEl) supplierExpEl.textContent = product.supplier.experience;
-
-            // Update certifications
-            const certificationsEl = document.getElementById('certifications');
-            if (certificationsEl && product.certifications) {
-                certificationsEl.innerHTML = product.certifications
-                    .map(cert => `<span class="cert-badge">${cert}</span>`)
-                    .join('');
-            }
-
-            // Update description
-            const descriptionEl = document.getElementById('product-description');
-            if (descriptionEl) descriptionEl.textContent = product.description;
-
-            // Update specifications
-            const specificationsEl = document.getElementById('specifications');
-            if (specificationsEl && product.specifications) {
-                let specsHtml = '';
-                for (const [label, value] of Object.entries(product.specifications)) {
-                    specsHtml += `
-                        <div class="spec-item">
-                            <span class="spec-item-label">${label}</span>
-                            <span class="spec-item-value">${value}</span>
+            function showProductNotFound() {
+                const mainContent = document.querySelector('.product-detail-main');
+                if (mainContent) {
+                    mainContent.innerHTML = `
+                        <div class="product-not-found">
+                            <h1>Product Not Found</h1>
+                            <p>The product you're looking for doesn't exist or has been removed.</p>
+                            <a href="products.html" class="btn btn-primary">Browse All Products</a>
                         </div>
                     `;
                 }
-                specificationsEl.innerHTML = specsHtml;
             }
-
-            // Update pricing/terms
-            const moqEl = document.getElementById('moq');
-            if (moqEl) moqEl.textContent = product.moq;
-
-            const leadTimeEl = document.getElementById('lead-time');
-            if (leadTimeEl) leadTimeEl.textContent = product.leadTime;
-
-            const capacityEl = document.getElementById('capacity');
-            if (capacityEl) capacityEl.textContent = product.capacity;
-
-            // Update meta description
-            const metaDesc = document.querySelector('meta[name="description"]');
-            if (metaDesc) {
-                metaDesc.content = product.description.substring(0, 160);
-            }
-        }
-
-        function showProductNotFound() {
-            const mainContent = document.querySelector('.product-detail-main');
-            if (mainContent) {
-                mainContent.innerHTML = `
-                    <div class="product-not-found">
-                        <h1>Product Not Found</h1>
-                        <p>The product you're looking for doesn't exist or has been removed.</p>
-                        <a href="products.html" class="btn btn-primary">Browse All Products</a>
-                    </div>
-                `;
-            }
-        }
+        })();
     </script>
 
     <!-- Contact Supplier Modal -->
@@ -657,6 +699,107 @@
             document.getElementById('getQuoteForm').addEventListener('submit', handleFormSubmit);
         })();
     </script>
+    <!-- Auth Modal -->
+    <div class="auth-modal-overlay" id="auth-modal-overlay">
+        <div class="auth-modal">
+            <button class="auth-modal-close" id="auth-modal-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="auth-modal-tabs">
+                <div class="auth-tab active" data-tab="login">Log In</div>
+                <div class="auth-tab" data-tab="signup">Sign Up</div>
+            </div>
+
+            <div class="auth-modal-body">
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form" style="display: block;">
+                    <h2 style="font-size: 24px; margin-bottom: 20px; color: var(--color-text-dark);">Welcome Back</h2>
+                    <div class="form-group">
+                        <label class="form-label" style="display:block; margin-bottom:8px; font-weight:500;">Email
+                            Address</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="name@company.com"
+                            required style="width:100%; padding:12px; border:1px solid #d1d5db; border-radius:8px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label class="form-label"
+                            style="display:block; margin-bottom:8px; font-weight:500;">Password</label>
+                        <input type="password" id="login-password" class="form-control" placeholder="Enter password"
+                            required style="width:100%; padding:12px; border:1px solid #d1d5db; border-radius:8px;">
+                    </div>
+
+                    <div id="login-error" style="color:red; display:none; margin-bottom:10px; font-size:14px;"></div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 12px; border-radius: 8px;">Log In</button>
+
+                    <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #6b7280;">
+                        Don't have an account? <a href="#" id="switch-to-signup"
+                            style="color: var(--color-primary); font-weight: 600;">Sign Up</a>
+                    </p>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form" style="display: none;">
+                    <h2 style="font-size: 24px; margin-bottom: 20px; color: var(--color-text-dark);">Create Account</h2>
+
+                    <div class="form-group">
+                        <label class="form-label" style="display:block; margin-bottom:8px; font-weight:500;">Full
+                            Name</label>
+                        <input type="text" id="signup-name" class="form-control" placeholder="Your name" required
+                            style="width:100%; padding:12px; border:1px solid #d1d5db; border-radius:8px;">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="display:block; margin-bottom:8px; font-weight:500;">I am a</label>
+                        <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                            <label style="flex: 1; cursor: pointer; min-width: 80px;">
+                                <input type="radio" name="role" value="buyer" checked style="margin-right: 5px;"> Buyer
+                            </label>
+                            <label style="flex: 1; cursor: pointer; min-width: 80px;">
+                                <input type="radio" name="role" value="seller" style="margin-right: 5px;"> Seller
+                            </label>
+                            <label style="flex: 1; cursor: pointer; min-width: 100px;">
+                                <input type="radio" name="role" value="manufacturer" style="margin-right: 5px;">
+                                Manufacturer
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" style="display:block; margin-bottom:8px; font-weight:500;">Email
+                            Address</label>
+                        <input type="email" id="signup-email" class="form-control" placeholder="name@company.com"
+                            required style="width:100%; padding:12px; border:1px solid #d1d5db; border-radius:8px;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label class="form-label"
+                            style="display:block; margin-bottom:8px; font-weight:500;">Password</label>
+                        <input type="password" id="signup-password" class="form-control" placeholder="Create password"
+                            required minlength="6"
+                            style="width:100%; padding:12px; border:1px solid #d1d5db; border-radius:8px;">
+                    </div>
+
+                    <div id="signup-error" style="color:red; display:none; margin-bottom:10px; font-size:14px;"></div>
+
+                    <button type="submit" class="btn btn-primary"
+                        style="width: 100%; padding: 12px; border-radius: 8px;">Create Account</button>
+
+                    <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #6b7280;">
+                        Already have an account? <a href="#" id="switch-to-login"
+                            style="color: var(--color-primary); font-weight: 600;">Log In</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/auth-modal.js"></script>
+    <script src="js/nav-auth.js"></script>
 </body>
 
 </html>

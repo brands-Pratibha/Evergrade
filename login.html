@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - Evergrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .auth-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-stats);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-card {
+            background: var(--color-bg-white);
+            padding: 48px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-card);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .auth-header h1 {
+            font-size: 32px;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-dark);
+            margin-bottom: 8px;
+        }
+
+        .auth-header p {
+            color: var(--color-text-body);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 16px;
+            color: var(--color-text-dark);
+            background-color: var(--color-bg-light);
+            transition: border-color 0.2s ease;
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+
+        .btn-auth {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--color-text-body);
+        }
+
+        .auth-footer a {
+            color: var(--color-primary);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 13px;
+            color: var(--color-text-body);
+            margin-bottom: 20px;
+        }
+
+        .forgot-password:hover {
+            color: var(--color-primary);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Removed -->
+    <main>
+        <section class="auth-section">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="index.html">
+                    <img src="assets/logo.svg" alt="Evergrade" style="height: 40px;">
+                </a>
+            </div>
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>Welcome Back</h1>
+                    <p>Log in to access your account</p>
+                </div>
+
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email" style="display:block; margin-bottom: 8px; font-weight: 500;">Email
+                            Address</label>
+                        <input type="email" id="email" class="auth-input" placeholder="name@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password"
+                            style="display:block; margin-bottom: 8px; font-weight: 500;">Password</label>
+                        <input type="password" id="password" class="auth-input" placeholder="Enter your password"
+                            required>
+                    </div>
+
+                    <a href="#" class="forgot-password">Forgot password?</a>
+
+                    <div class="error-message" id="login-error"></div>
+
+                    <button type="submit" class="btn btn-primary btn-auth" id="login-btn">
+                        Log In
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Removed -->
+
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

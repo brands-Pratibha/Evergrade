@@ -52,11 +52,15 @@
                     <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
                     <li><a href="resources.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="contact.html" class="btn btn-primary">Contact Us</a>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <div id="auth-container" style="display: flex; gap: 10px; align-items: center;">
+                    <button class="btn btn-primary trigger-auth-login"
+                        onclick="window.openAuthModal && window.openAuthModal('login')">Log In</button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -194,7 +198,7 @@
                         <div class="plan-header">
                             <h3>Starter</h3>
                             <div class="plan-price">
-                                <span class="currency">₹</span>5K<span class="price-asterisk">*</span> <span
+                                <span class="currency">₹</span>5,000<span class="price-asterisk">*</span> <span
                                     class="period">/per month</span>
                             </div>
                         </div>
@@ -217,7 +221,7 @@
                         <div class="plan-header">
                             <h3>Pro</h3>
                             <div class="plan-price">
-                                <span class="currency">₹</span>15K<span class="price-asterisk">*</span> <span
+                                <span class="currency">₹</span>15,000<span class="price-asterisk">*</span> <span
                                     class="period">/per month</span>
                             </div>
                         </div>
@@ -619,6 +623,9 @@
             });
         })();
     </script>
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/auth-modal.js"></script>
+    <script src="js/nav-auth.js"></script>
 </body>
 
 </html>

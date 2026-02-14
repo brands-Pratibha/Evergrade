@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration - Evergrade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: var(--color-bg-stats);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wizard-container {
+            max-width: 600px;
+            margin: 40px auto;
+            width: 90%;
+            flex: 1;
+        }
+
+        .wizard-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .wizard-brand {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .wizard-brand img {
+            height: 48px;
+        }
+
+        .wizard-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e5e7eb;
+            z-index: 0;
+        }
+
+        .progress-line-fill {
+            position: absolute;
+            top: 14px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--color-primary);
+            z-index: 0;
+            transition: width 0.3s ease;
+        }
+
+        .step-indicator {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            color: #6b7280;
+            transition: all 0.3s ease;
+        }
+
+        .step-indicator.active {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .step-indicator.completed {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+        }
+
+        .step-label {
+            position: absolute;
+            top: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            color: #6b7280;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .step-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Form Steps */
+        .wizard-step {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .wizard-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 24px;
+            color: var(--color-text-dark);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        p.step-desc {
+            color: var(--color-text-body);
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--color-text-dark);
+            font-size: 14px;
+        }
+
+        .form-label span.required {
+            color: #ef4444;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-wizard {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-next {
+            background-color: var(--color-primary);
+            color: white;
+            margin-top: 20px;
+        }
+
+        .btn-next:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .btn-prev {
+            background-color: transparent;
+            color: var(--color-text-body);
+            border: 1px solid #d1d5db;
+            margin-top: 10px;
+        }
+
+        .btn-prev:hover {
+            background-color: #f9fafb;
+        }
+
+        .error-msg {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wizard-container">
+        <div class="wizard-header">
+            <a href="index.html" class="wizard-brand">
+                <img src="assets/logo.svg" alt="Evergrade">
+            </a>
+        </div>
+
+        <div class="wizard-card">
+            <!-- Progress -->
+            <div class="progress-container">
+                <div class="progress-line"></div>
+                <div class="progress-line-fill" id="progress-fill"></div>
+                <div class="progress-bar">
+                    <div class="step-item">
+                        <div class="step-indicator active" data-step="1">1</div>
+                        <span class="step-label">Account</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-indicator" data-step="2">2</div>
+                        <span class="step-label">Business</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-indicator" data-step="3">3</div>
+                        <span class="step-label">Products</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="seller-wizard-form">
+                <!-- Step 1: Account Details -->
+                <div class="wizard-step active" id="step-1">
+                    <h2>Create Seller Account</h2>
+                    <p class="step-desc">Start your journey as a verified supplier.</p>
+
+                    <div class="form-group">
+                        <label class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" id="w-name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address <span class="required">*</span></label>
+                        <input type="email" id="w-email" class="form-control" placeholder="name@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number <span class="required">*</span></label>
+                        <input type="tel" id="w-mobile" class="form-control" placeholder="+91 98765 43210" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password <span class="required">*</span></label>
+                        <input type="password" id="w-password" class="form-control"
+                            placeholder="Create a strong password" required minlength="6">
+                    </div>
+
+                    <div class="error-msg" id="step-1-error"></div>
+                    <button type="button" class="btn-wizard btn-next" onclick="nextStep(1)">Continue</button>
+                    <div style="text-align: center; margin-top: 20px; font-size: 14px;">
+                        Already have an account? <a href="login.html" style="color: var(--color-primary);">Log In</a>
+                    </div>
+                </div>
+
+                <!-- Step 2: Business Details -->
+                <div class="wizard-step" id="step-2">
+                    <h2>Business Details</h2>
+                    <p class="step-desc">Tell us about your company.</p>
+
+                    <div class="form-group">
+                        <label class="form-label">Company Name <span class="required">*</span></label>
+                        <input type="text" id="w-company" class="form-control" placeholder="e.g. ABC Exports Pvt Ltd"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Business Type <span class="required">*</span></label>
+                        <select id="w-business-type" class="form-control" required>
+                            <option value="">Select Type</option>
+                            <option value="manufacturer">Manufacturer</option>
+                            <option value="trader">Trader / Exporter</option>
+                            <option value="wholesaler">Wholesaler</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">GST Number (Optional)</label>
+                        <input type="text" id="w-gst" class="form-control" placeholder="22AAAAA0000A1Z5">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Country <span class="required">*</span></label>
+                            <input type="text" id="w-country" class="form-control" placeholder="e.g. India" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">PIN / ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="w-pincode" class="form-control" placeholder="e.g. 400001" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">City <span class="required">*</span></label>
+                            <input type="text" id="w-city" class="form-control" placeholder="e.g. Mumbai" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">State <span class="required">*</span></label>
+                            <input type="text" id="w-state" class="form-control" placeholder="e.g. Maharashtra"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="error-msg" id="step-2-error"></div>
+                    <button type="button" class="btn-wizard btn-next" onclick="nextStep(2)">Continue</button>
+                    <button type="button" class="btn-wizard btn-prev" onclick="prevStep(2)">Back</button>
+                </div>
+
+                <!-- Step 3: Product Overview -->
+                <div class="wizard-step" id="step-3">
+                    <h2>Product Overview</h2>
+                    <p class="step-desc">What kind of products do you sell?</p>
+
+                    <div class="form-group">
+                        <label class="form-label">Primary Category <span class="required">*</span></label>
+                        <select id="w-category" class="form-control" required>
+                            <option value="">Select Category</option>
+                            <option value="grains">Grains & Cereals</option>
+                            <option value="spices">Spices & Grocery</option>
+                            <option value="textiles">Textiles & Fabrics</option>
+                            <option value="engineering">Engineering Goods</option>
+                            <option value="chemicals">Chemicals</option>
+                            <option value="agro">Agriculture</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Main Products <span class="required">*</span></label>
+                        <input type="text" id="w-products" class="form-control"
+                            placeholder="e.g. Basmati Rice, Red Chilli" required>
+                    </div>
+
+                    <div class="error-msg" id="step-3-error"></div>
+                    <button type="submit" class="btn-wizard btn-next" id="final-submit-btn">Complete
+                        Registration</button>
+                    <button type="button" class="btn-wizard btn-prev" onclick="prevStep(3)">Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/firebase-mock.js"></script>
+    <script src="js/seller-auth.js"></script>
+    <script>
+        // Global functions for inline onclick handlers (shim for module)
+        window.nextStep = function (step) {
+            const event = new CustomEvent('wizard-next', { detail: { step: step } });
+            document.dispatchEvent(event);
+        };
+        window.prevStep = function (step) {
+            const event = new CustomEvent('wizard-prev', { detail: { step: step } });
+            document.dispatchEvent(event);
+        };
+    </script>
+</body>
+
+</html>
