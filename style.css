@@ -1456,8 +1456,12 @@ img {
         --font-size-body-lg: 16px;
     }
 
-    .nav-list,
-    .header-actions {
+    .nav-list {
+        display: none;
+    }
+
+    .header-actions #auth-container,
+    .header-actions .btn-primary:not(.mobile-menu-toggle) {
         display: none;
     }
 

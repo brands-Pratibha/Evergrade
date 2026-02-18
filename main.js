@@ -1,10 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Navigation
+    // Mobile Navigation - Dynamic Injection
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileNavClose = document.querySelector('.mobile-nav-close');
-    const navList = document.querySelector('.nav-list');
-    const headerActions = document.querySelector('.header-actions');
+    let mobileNav = document.getElementById('mobileNav');
+
+    // If there's a toggle button but no mobile nav drawer, inject one
+    if (mobileMenuToggle && !mobileNav) {
+        // Build nav links from existing desktop nav
+        const desktopNav = document.querySelector('.main-nav .nav-list') || document.querySelector('.hero-nav');
+        let linksHTML = '';
+        let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        // Default nav links
+        const navItems = [
+            { href: 'index.html', label: 'Home' },
+            { href: 'exports.html', label: 'Exports' },
+            { href: 'imports.html', label: 'Imports' },
+            { href: 'services.html', label: 'Services' },
+            { href: 'how-it-works.html', label: 'How It Works' },
+            { href: 'about.html', label: 'About' },
+            { href: 'resources.html', label: 'Resources' },
+            { href: 'contact.html', label: 'Contact' }
+        ];
+
+        navItems.forEach(item => {
+            const isActive = currentPage === item.href ? ' class="active"' : '';
+            linksHTML += `<a href="${item.href}"${isActive}>${item.label}</a>\n`;
+        });
+
+        const mobileNavHTML = `
+        <nav class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-content">
+                <div class="mobile-nav-header">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.svg" alt="Evergrade" class="logo-img">
+                    </a>
+                    <button class="mobile-nav-close" aria-label="Close mobile menu">&times;</button>
+                </div>
+                <div class="mobile-nav-links">
+                    ${linksHTML}
+                </div>
+                <div class="mobile-nav-cta">
+                    <button class="btn btn-primary trigger-auth-login" onclick="window.openAuthModal && window.openAuthModal('login')">Log In</button>
+                </div>
+            </div>
+        </nav>`;
+
+        document.body.insertAdjacentHTML('afterbegin', mobileNavHTML);
+        mobileNav = document.getElementById('mobileNav');
+    }
 
     // Open mobile menu
     if (mobileMenuToggle && mobileNav) {
@@ -15,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close mobile menu - close button
+    const mobileNavClose = mobileNav ? mobileNav.querySelector('.mobile-nav-close') : null;
     if (mobileNavClose && mobileNav) {
         mobileNavClose.addEventListener('click', () => {
             mobileNav.classList.remove('active');
@@ -29,14 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileNav.classList.remove('active');
                 document.body.style.overflow = '';
             }
-        });
-    }
-
-    // Legacy mobile menu toggle for other pages
-    if (mobileMenuToggle && navList && !mobileNav) {
-        mobileMenuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            console.log('Mobile menu clicked');
         });
     }
 
@@ -128,6 +164,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Hero Role Pill Buttons - Auth-Gated Navigation
+    const rolePillBtns = document.querySelectorAll('.role-pill-btn');
+    rolePillBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const user = JSON.parse(localStorage.getItem('mockAuthUser'));
+            if (user) {
+                // User is logged in → go to dashboard
+                window.location.href = 'seller-dashboard.html';
+            } else {
+                // Not logged in → open login modal
+                if (window.openAuthModal) {
+                    window.openAuthModal('login');
+                }
+            }
+        });
+    });
 
     // Welcome Overlay Logic for First-Time Visitors
     const welcomeOverlay = document.getElementById('welcomeOverlay');
