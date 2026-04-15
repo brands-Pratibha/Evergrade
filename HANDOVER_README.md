@@ -24,7 +24,7 @@
 13. [How to Add New Blog Posts](#13-how-to-add-new-blog-posts)
 14. [Upgrading from Mock Firebase to Real Firebase](#14-upgrading-from-mock-firebase-to-real-firebase)
 15. [Common Maintenance Tasks](#15-common-maintenance-tasks)
-16. [Key Contacts & Credentials Checklist](#16-key-contacts--credentials-checklist)
+
 
 ---
 
@@ -678,38 +678,7 @@ GitHub Pages serves files by their exact filename. Common causes:
 
 ---
 
-## 16. Key Contacts & Credentials Checklist
 
-Before handover is complete, ensure you have received all of the following:
-
-### Access Credentials to Collect
-
-- [ ] **GitHub account** (username + password) that owns the Evergrade repository
-- [ ] **Hostinger account** (email + password) for domain + email management
-- [ ] **info@evergrade.in** email inbox access (Webmail login or forwarding setup)
-- [ ] **Firebase Console** access (when real Firebase is set up)
-- [ ] **EmailJS account** credentials (when contact form email is set up)
-
-### Repository Info to Confirm
-
-- [ ] GitHub repository URL (e.g., `https://github.com/[org]/evergrade`)
-- [ ] You have push access to the `main` branch
-- [ ] GitHub Pages is active and pointing to the `main` branch
-
-### Domain Info to Confirm
-
-- [ ] Domain: `evergrade.in` registered on Hostinger
-- [ ] Domain renewal date noted (set a calendar reminder 1 month before)
-- [ ] CNAME record in Hostinger DNS points to correct GitHub Pages URL
-
-### Business Info to Confirm
-
-- [ ] Who manages the `info@evergrade.in` inbox on a daily basis?
-- [ ] Who is the primary business contact for seller/buyer support queries?
-- [ ] Are there any active seller accounts created in the mock system that should be preserved/migrated?
-- [ ] Is there a WhatsApp Business number linked to the platform?
-
----
 
 > **You're all set!** This document covers the complete Evergrade platform — how it was built, how it works, and how to keep it running. The codebase is well-commented; start with any HTML page and trace the `<script>` tags at the bottom to find the controlling JS file for that page.
 >
