@@ -22,12 +22,13 @@
 //  FIREBASE CONFIG  ← Paste your real values here
 // ═══════════════════════════════════════════════════════════════════
 const firebaseConfig = {
-    apiKey:            "YOUR_API_KEY",
-    authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId:         "YOUR_PROJECT_ID",
-    storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId:             "YOUR_APP_ID"
+    apiKey:            "AIzaSyCR0KLbh4-_xfNcukE40QPg0DiQhsaPCYM",
+    authDomain:        "evergrade-c716e.firebaseapp.com",
+    projectId:         "evergrade-c716e",
+    storageBucket:     "evergrade-c716e.firebasestorage.app",
+    messagingSenderId: "307999208769",
+    appId:             "1:307999208769:web:2379c77d40b3438df09dc0",
+    measurementId:     "G-NK0LY1Q60W"
 };
 // ═══════════════════════════════════════════════════════════════════
 
