@@ -54,13 +54,13 @@
 | Structure | **HTML5** | Pure static HTML pages, no build step |
 | Styling | **Vanilla CSS** (`style.css`) | Single large CSS file, all pages share it |
 | Logic | **Vanilla JavaScript** | No frameworks – plain JS files |
-| Authentication | **Mock Firebase** (localStorage) | See Section 5 & 14 for real Firebase upgrade |
-| Database | **Browser localStorage** | Seller products, inquiries, tickets stored locally |
+| Authentication | **Firebase** | Real Firebase Auth via `firebase-init.js` |
+| Database | **Browser localStorage / Firebase Firestore** | Seller products, inquiries locally, Users in Firestore |
 | Hosting | **GitHub Pages** | Free static site hosting |
 | Domain | **Hostinger** → `www.evergrade.in` | CNAME points to GitHub Pages |
 | Fonts | **Google Fonts** | Outfit + Playfair Display |
 
-> ⚠️ **IMPORTANT:** There is NO backend server, NO Node.js, NO database server. Everything runs in the browser. The "Firebase" used is a simulation that stores data in the user's browser (localStorage). See Section 14 for upgrading to real Firebase.
+> ⚠️ **IMPORTANT:** There is NO backend server like Node.js or Python. Everything runs in the browser and uses Google's Firebase as a backend-as-a-service for Authentication and User Storage. Parts of the system (seller products) still fall back to `localStorage` for now.
 
 ---
 
@@ -117,8 +117,7 @@ evergrade/
 ├── CNAME                       ← Contains: www.evergrade.in (for GitHub Pages custom domain)
 │
 ├── js/                         ← JavaScript modules
-│   ├── firebase-mock.js        ← MOCK Firebase (localStorage auth + DB)
-│   ├── firebase-config.js      ← Real Firebase config (currently has placeholder values)
+│   ├── firebase-init.js        ← Real Firebase config and initialization
 │   ├── auth-modal.js           ← Login/Signup popup modal logic
 │   ├── auth.js                 ← Auth utilities
 │   ├── nav-auth.js             ← Updates header (Login button ↔ Profile avatar)
@@ -195,26 +194,29 @@ evergrade/
 
 ## 5. How Authentication Works
 
-### Current State: Mock Firebase (Simulated)
+### Current State: Firebase Integrated
 
-> ⚠️ All user data is stored in the **browser's localStorage**. If the user clears their browser data, they are logged out and all their data is lost. This is a **prototype** setup, not production-ready.
+> ✅ The app uses real Firebase Authentication and Firestore for users. Registered accounts are secure and persist across devices.
 
 ### The Files Involved
 
 | File | Role |
 |---|---|
-| `js/firebase-mock.js` | Core simulation engine. Mimics Firebase Auth + Firestore using localStorage. |
-| `js/auth-modal.js` | The Login/Signup popup modal. Uses firebase-mock. |
+| `js/firebase-init.js` | Contains the real Firebase config and initializes the `firebase` object. Replaced the old mock. |
+| `js/auth-modal.js` | The Login/Signup popup modal. Uses real Firebase API. |
 | `js/nav-auth.js` | Updates the header (shows "Log In" button when logged out, profile avatar when logged in). |
 | `js/seller-auth.js` | Handles the seller registration wizard form submission. |
 | `js/dashboard.js` | Checks auth state on seller dashboard, redirects if not logged in. |
 
 ### How to Include Auth on a New Page
 
-Every page that needs auth must include these three scripts **at the bottom of `<body>`**, in this exact order:
+Every page that needs auth must include the Firebase CDNs, the init file, and the auth UI scripts **at the bottom of `<body>`**, in this exact order:
 
 ```html
-<script src="js/firebase-mock.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+<script src="js/firebase-init.js"></script>
 <script src="js/auth-modal.js"></script>
 <script src="js/nav-auth.js"></script>
 ```
@@ -232,25 +234,24 @@ And the header must have this container:
 1. User clicks **Log In** (any element with class `trigger-auth-login`).
 2. `auth-modal.js` opens a popup overlay with a login form.
 3. User enters email + password and submits.
-4. `firebase-mock.js` checks `localStorage['mockUsers']` for a matching email+password.
-5. If found: sets `localStorage['mockAuthUser']` and calls all auth listeners.
+4. Auth logic checks Firebase.
+5. If found: calls all auth listeners.
 6. `nav-auth.js` detects the auth change and replaces the "Log In" button with a profile avatar dropdown.
 7. If the user's role is `seller` or `manufacturer`, the dropdown shows a "Dashboard" link.
 
 ### How Signup Works
 
 1. User clicks **Sign Up** and selects role: Buyer, Seller, or Manufacturer.
-2. If **Buyer**: Creates account in mock localStorage, closes modal.
+2. If **Buyer**: Creates account in Firebase, closes modal.
 3. If **Seller/Manufacturer**: Redirects to `seller-register.html` with name/email pre-filled via URL params.
 
 ### LocalStorage Keys Used by Auth
 
 | Key | What it stores |
 |---|---|
-| `mockAuthUser` | Currently logged-in user object |
-| `mockUsers` | Array of all registered users (email, password, uid, displayName) |
-| `mockDB_users` | Firestore-like users collection (uid → {name, email, role, createdAt}) |
-| `mockDB_sellers` | Firestore-like sellers collection (uid → business data) |
+| (Managed by Firebase) | Logged-in user state, token, etc. |
+| `users` (Firestore) | Firestore collection (uid → {name, email, role, createdAt}) |
+| `sellers` (Firestore) | Firestore collection (uid → business data) |
 
 ---
 
@@ -596,63 +597,29 @@ Commit and push both the new article file and the updated `blog.html`.
 
 ---
 
-## 14. Upgrading from Mock Firebase to Real Firebase
+## 14. Firebase Configuration
 
-The current system is a simulation. To make auth and data persist across devices and browsers, upgrade to real Firebase.
+Real Firebase is now integrated! The application connects to a live Firebase project (`evergrade-c716e`). 
 
-### Step 1: Create a Firebase Project
+### How It Was Set Up
+- **Auth:** Email/Password authentication is enabled.
+- **Database:** Firestore is enabled and stores the `users` and `sellers` collections.
+- **Initialization:** Instead of loading full NPM packages, we load Firebase via CDN links in the HTML files and wrap the config in `js/firebase-init.js`.
 
-1. Go to [console.firebase.google.com](https://console.firebase.google.com)
-2. Click "Add Project" → Name it "Evergrade"
-3. Enable **Authentication** → Sign-in method → **Email/Password**
-4. Enable **Firestore Database** → Start in production mode
-
-### Step 2: Get Your Config Keys
-
-Firebase Console → Project Settings → Your apps → Web app:
+### Where to Find the Config
+If you ever need to change the Firebase project, open `js/firebase-init.js` and update the `firebaseConfig` object:
 
 ```javascript
+// js/firebase-init.js
 const firebaseConfig = {
-  apiKey: "AIza...",
-  authDomain: "evergrade-xxxxx.firebaseapp.com",
-  projectId: "evergrade-xxxxx",
-  storageBucket: "evergrade-xxxxx.appspot.com",
-  messagingSenderId: "XXXXXXXXXX",
-  appId: "1:XXXXXXXXXX:web:XXXXXXXXXXXXXXXX"
+    apiKey: "AIza...",
+    authDomain: "evergrade-c716e.firebaseapp.com",
+    projectId: "evergrade-c716e",
+    storageBucket: "evergrade-c716e.firebasestorage.app",
+    messagingSenderId: "307999208769",
+    appId: "1:307999208769:web:2379c77d40b3438df09dc0",
+    measurementId: "G-NK0LY1Q60W"
 };
-```
-
-### Step 3: Update `firebase-config.js`
-
-Replace the placeholder values in `js/firebase-config.js` with the real values above.
-
-### Step 4: Replace Mock Calls
-
-- In every file using `const { auth, db, ... } = window.FirebaseMock;`
-- Replace with real Firebase SDK imports from `firebase-config.js`
-- Disable or delete `js/firebase-mock.js`
-
-### Step 5: Set Firestore Security Rules
-
-In Firebase Console → Firestore → Rules:
-
-```
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if request.auth.uid == userId;
-    }
-    match /sellers/{sellerId} {
-      allow read: if request.auth != null;
-      allow write: if request.auth.uid == sellerId;
-    }
-    match /products/{productId} {
-      allow read: if true;
-      allow write: if request.auth != null;
-    }
-  }
-}
 ```
 
 ---
